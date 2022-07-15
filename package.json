@@ -1,0 +1,11 @@
+{
+  "name": "upsdss",
+  "version": "1.0.0",
+  "description": "System to guide high school students select best university program.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Osei Asante Clement and Sulkabe Paul Ntaado",
+  "license": "ISC"
+}
