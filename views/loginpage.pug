@@ -1,0 +1,39 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="shortcut icon", href="./images/brainwork.png", type="image/x-icon")
+        title Welcome To UPSDSS
+        meta(name="description", content="Welcome to UPSDSS , a guide to university program selection")
+        link(rel="stylesheet", href="./css/start.css")
+    body
+     .container 
+      .slider 
+       .maincontainer 
+        header 
+         .header 
+          .logo 
+           .logo_image 
+            img(src="./images/brainwork.png", alt="UPS", srcset="")
+           .logo_text 
+            h1
+             span.frs UPS
+             span.sec DSS 
+        section 
+         .content 
+          .intro 
+           h1 Welcome To University Program Selection Decision Support System.
+          .form 
+           p Log In to Continue &nbsp;
+           .mainform  
+            form(action="/post" method="POST")
+             label(for="email") Email :
+             input(type="email", name="email" required)
+             label(for="password") Password :
+             input(type="password", name="password" required)
+             input(type="submit", value="Log In")  
+          .next 
+           button continue >>
+         

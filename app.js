@@ -12,7 +12,7 @@ app.set('view engine','pug');
 app.use(express.static(PATH.join(__dirname,"public")));
 
 
-app.use('/start',mainRoute);
+app.use('/',mainRoute);
 
 
 app.listen(PORT,(err)=>{
