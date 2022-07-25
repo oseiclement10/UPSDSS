@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {getStartPage,getLoginPage} = require('../controllers/mainController');
+const {getStartPage,getLoginPage} = require('../controllers/pagesController');
 
 
 router.get('/start',getStartPage);

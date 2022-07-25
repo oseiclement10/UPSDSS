@@ -16,7 +16,7 @@ body .container .slider{
     background-color: rgba(0,0,0,0.5);
 }
 body .container .maincontainer{
-    background-color: whitesmoke;
+    background-color: white;
     width:70%;
     margin:auto;
     padding: 3rem;
@@ -125,4 +125,14 @@ body #login{
     position:absolute;
     right:10rem;
     color:gray;
+}
+
+body .mainform .correct {
+    color:green;
+    padding: 4px;
+}
+
+body .mainform .wrong{
+    color:red;
+    padding-top: 4px;
 }
