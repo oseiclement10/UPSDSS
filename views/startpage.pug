@@ -28,6 +28,8 @@ html(lang="en")
           .form 
            p Sign Up To Continue &nbsp;
            .mainform  
+            if msg 
+             p(id="error") #{msg}
             form(action="/users/signup" method="POST" id="signup")
              label(for="name") Name
              input(type="text", name="username" id="name" required)

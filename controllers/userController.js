@@ -1,5 +1,5 @@
 const connection = require('../configs/database');
-const userQuery = "Insert into users(name,email,password)values(?,?,?)";
+const userQuery = "Insert into users(username,email,password)values(?,?,?)";
 const bcrypt = require('bcryptjs');
 const {validationResult} = require('express-validator');
 
@@ -7,22 +7,24 @@ const signUpUser = (req,res,next) =>{
   const errors = validationResult(req);
 
   if(!errors.isEmpty()){
-    req.redirect('/users/signup');
+    res.redirect('/users/signup');
   }else{
     bcrypt.genSalt(10,(err,salt)=>{
       if(err){
-        console.log(err);
-        return;
+        console.log("error occured at salt gen" + err);
+        res.redirect('/start?e=error');
       }else{
         let password = req.body.password;
         bcrypt.hash(password,salt,(err,hash)=>{
           if(err){
-            console.log(err);
+            console.log("error occured at hashing " + err);
+            res.redirect('/start?e=error');
           }else{
             password=hash;
-            connection.query(userQuery,[req.body.username,password,email],(err,rows)=>{
+            connection.query(userQuery,[req.body.username,req.body.email,password],(err,rows)=>{
               if(err){
-                console.log(err);
+                console.log("error occured at salt querying" + err);
+                res.redirect('/start?e=error');
               }else{
                 console.log("user signed up successfully");
                 res.json({

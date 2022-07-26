@@ -21,7 +21,6 @@ app.use(express.static(PATH.join(__dirname,"public")));
 app.use('/',mainRoute);
 app.use('/users',userRoute);
 
-
 //database connection
 connection.connect(function(err){
     if(err){

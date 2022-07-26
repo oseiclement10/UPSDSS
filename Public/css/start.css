@@ -139,3 +139,7 @@ body .mainform .wrong{
     color:red;
     padding-top: 4px;
 }
+body #error{
+    color:red;
+    
+}
