@@ -28,14 +28,17 @@ html(lang="en")
           .form 
            p Sign Up To Continue &nbsp;
            .mainform  
-            form(action="/users/signup" method="POST" )
-             label(for="email") Email :
+            form(action="/users/signup" method="POST" id="signup")
+             label(for="name") Name
+             input(type="text", name="name" id="name" required)
+
+             label(for="email") Email 
              input(type="email", name="email" id="email" required)
 
-             label(for="password") Password :
+             label(for="password") Password 
              input(type="password", name="password" id="password1" required)
 
-             label(for="password2") Verify password :
+             label(for="password2") Verify password 
              input(type="password", name="password2" id="password2" onkeyup='compare()' required)
 
              span(id="message") 

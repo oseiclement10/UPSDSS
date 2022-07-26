@@ -69,11 +69,10 @@ body .content h1{
 body .content .form p{
     text-align: center;
     color:dodgerblue;
-    
 }
 body .content .mainform{
     
-    padding:1rem;
+    padding:0.7rem;
     width:60%;
     margin:auto;
     border-radius:6px;
@@ -81,18 +80,22 @@ body .content .mainform{
 body .content form{
     display: flex;
     flex-direction: column;
-    padding:0.7rem;
+    padding:0.5rem;
     
 }
 body .content form label{
-    color:gray;
-    padding:10px;
+    color:rgb(186, 181, 181);
+    display:inline-block;
+    padding:3px;
+    padding-top:4px;
 }
-body .content form input[type="email"],body .content form input[type="password"]{
+body .content form input[type="email"],body .content form input[type="text"],body .content form input[type="password"]{
     border-top: none;
     border-right: none;
     border-left: none;
-    padding:4px;
+    border-bottom: 1px solid gray;
+    display: inline-block;
+    margin-bottom:3px;
     width:80%;
 }
 body .content form  input[type="submit"]{
