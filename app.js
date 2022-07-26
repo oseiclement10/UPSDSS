@@ -6,6 +6,23 @@ const mainRoute = require('./routes/mainRoutes');
 const userRoute = require('./routes/userRoutes');
 const PORT = process.env.PORT || 5000;
 const connection = require('./configs/database');
+const passport = require('passport');
+const session = require('express-session');
+
+//authentication middlewares
+
+require('./configs/passport')(passport);
+
+app.use(session({
+    secret:"somecookie",
+    resave:true,
+    saveUninitialized:true,
+}));
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 //Templating engine
 app.set('views','./views');
@@ -16,8 +33,6 @@ app.use(express.urlencoded({extended:false}));
 
 // Routes
 app.use(express.static(PATH.join(__dirname,"public")));
-
-
 app.use('/',mainRoute);
 app.use('/users',userRoute);
 

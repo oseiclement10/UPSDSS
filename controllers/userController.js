@@ -2,6 +2,7 @@ const connection = require('../configs/database');
 const userQuery = "Insert into users(username,email,password)values(?,?,?)";
 const bcrypt = require('bcryptjs');
 const {validationResult} = require('express-validator');
+const passport = require('passport');
 
 const signUpUser = (req,res,next) =>{
   const errors = validationResult(req);
@@ -39,6 +40,25 @@ const signUpUser = (req,res,next) =>{
   }  
 }
 
+const logInUser = (req,res,next)=>{
+  passport.authenticate('local-login',(err,user,info)=>{
+    if(err){
+      res.redirect('/login?e=error');
+    }else if(!user){
+      res.redirect('/login?e=incorrect_credentials');
+    }else{
+      req.logIn(user,err=>{
+        if(err){
+          console.log(err);
+          res.redirect('/login?e=error');
+        }else{
+          res.redirect('/welcome');
+        }
+      })
+    }
+  })(req,res,next);
+}
 module.exports = {
-    signUpUser
+    signUpUser,
+    logInUser
 }

@@ -6,18 +6,18 @@ module.exports = function (passport){
     passport.serializeUser(function(user,done){
         done(null,user.id);
     });
-    passport.deserializeUser(function(done,id){
+    passport.deserializeUser(function(id,done){
         connection.query("SELECT * FROM USERS WHERE id = ?",[id],function(err,rows){
-            done(err,rows);
+            done(err,rows[0]);
         })
     })
     passport.use('local-login',new LocalStrategy({
-        usernameField:"username",
+        usernameField:"email",
         passwordField:"password",
         passReqToCallback:true,
     },
     function(req,username,password,done){
-        connection.query("SELECT * FROM USERS WHERE USERNAME = ?",[username],(err,rows)=>{
+        connection.query("SELECT * FROM USERS WHERE email = ?",[username],(err,rows)=>{
             if(err){
                 return done(err);
             }else if(!rows.length){
@@ -32,7 +32,7 @@ module.exports = function (passport){
                     }else{
                        return done(null,false,{message:"Incorrect credentials"});
                     }
-                })
+                })  
             }
         })
     }
