@@ -1,11 +1,11 @@
 
 const getStartPage =(req,res,next)=>{
     if(req.query.e ==='error'){
-        res.render('startpage',{
+        res.render('signup',{
             msg:"An error occured please try again ..."
         });
     }else{
-        res.render('startpage');
+        res.render('signup');
     }
   
 }

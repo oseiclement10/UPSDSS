@@ -97,6 +97,7 @@ body .content form input[type="email"],body .content form input[type="text"],bod
     display: inline-block;
     margin-bottom:3px;
     width:80%;
+    padding:4px;
 }
 body .content form  input[type="submit"]{
     width:20%;
