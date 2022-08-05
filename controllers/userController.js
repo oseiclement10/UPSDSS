@@ -28,9 +28,7 @@ const signUpUser = (req,res,next) =>{
                 res.redirect('/start?e=error');
               }else{
                 console.log("user signed up successfully");
-                res.json({
-                  msg:"user signed up successfully",
-                })
+                logInUser(req,res,next);
               }
             })
           }
