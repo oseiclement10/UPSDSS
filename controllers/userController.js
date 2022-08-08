@@ -56,6 +56,7 @@ const logInUser = (req,res,next)=>{
     }
   })(req,res,next);
 }
+
 module.exports = {
     signUpUser,
     logInUser

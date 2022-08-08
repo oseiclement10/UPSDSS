@@ -1,0 +1,177 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    
+}
+
+body .navbar{
+    height:14vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 3px;
+}
+body .navbar .logo{
+    display:flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 30%;
+    justify-content: center;
+    height:inherit;
+    
+}
+
+body .logo .logo_image{
+    width:6vw;
+    max-width:100%;
+   
+}
+
+body .logo .logo_image img{
+    width:100%;
+    max-width:100%;
+}
+body .logo .logo_text{
+    display:flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+body .logo .logo_text .frs{
+    color:rgb(57, 143, 143);
+    
+    
+}
+body .logo .logo_text .sec{
+    color:rgb(235, 189, 111);
+   
+}
+
+body .navbar .links{
+    display: flex;
+   
+}
+body .navbar .links a{
+  text-decoration: none;
+  font-size: 2rem;
+  color:rgb(20, 99, 99);
+  font-weight: bold;
+}
+
+body .navbar .links a:hover{
+    opacity: 0.7;
+}
+
+
+body main .container{
+    display:flex;
+    height:50vh;
+    max-height: 50vh;;
+    width:80%;
+    margin:auto;
+
+}
+body main .container .illus {
+    flex:1;
+    height: inherit;
+}
+
+body main .illus img{
+    width:100%;
+    max-width: 100%;
+    height: inherit;
+    object-fit: contain;
+}
+
+body main .container .intro{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-start;
+}
+
+body main .container .intro .intro_msg{
+    border:2px solid rgb(20, 99, 99);
+    color:rgb(20, 99, 99);
+    width: fit-content;
+    padding:0.5rem 1.5rem;
+    border-radius:10px;
+}
+body .intro .intro_msg h1{
+    font-size: 3rem;
+}
+
+body .intro .intro_msg p{
+    text-align: end;
+}
+
+
+main .toselect{
+    padding:2rem 1rem;
+    text-align: center;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    color:rgb(20, 99, 99);
+    font-size: 1rem;
+    
+}
+
+main .options{
+    padding:1.5rem;
+    /* border:2px solid rgb(20, 99, 99); */
+    border-radius:5px;
+    width:80%;
+    margin: auto;
+}
+main .options .form_cont{
+   
+    display: flex;
+    flex-wrap: nowrap;
+    padding:5px;
+    align-items: center;
+    justify-content: space-between;  
+}
+
+main .form_cont .opt_cont{
+    border:1px solid rgb(20, 99, 99);
+    border-radius:3px;
+    background-color: rgb(20, 99, 99);
+    color:white;
+    font-size:1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:1rem;
+    border-radius:8px;
+}
+
+main form .submit{
+    margin-top: 4rem;
+    position: relative;
+    
+}
+
+main form  .submit input[type="submit"]{
+    padding:1rem;
+    border:none;
+    color:white;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(20, 99, 99);
+    opacity: 0.7;
+}
+
+main form .submit input[type="submit"]:hover{
+    opacity:1   ;
+}
+
+main form .submit input[type="submit"]{
+    position: relative;
+    right:-1000px;
+}
