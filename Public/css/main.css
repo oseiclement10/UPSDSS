@@ -165,8 +165,10 @@ main .opt_cont label, main .opt_cont input[type="checkbox"]{
 
 main form .submit{
     margin-top: 4rem;
-    position: relative;
+    display: flex;
+    align-items: flex-end;
     
+    justify-content: end;
 }
 
 main form  .submit input[type="submit"]{
@@ -178,16 +180,14 @@ main form  .submit input[type="submit"]{
     cursor: pointer;
     background-color: rgb(20, 99, 99);
     opacity: 0.7;
+    
+
 }
 
 main form .submit input[type="submit"]:hover{
-    opacity:1   ;
+    opacity:1;
 }
 
-main form .submit input[type="submit"]{
-    position: relative;
-    right:-1000px;
-}
 
 footer{
     padding:1rem;
@@ -218,11 +218,17 @@ footer .socials .media a{
     display: block;
     width:30px;
 }
+footer .socials .media a:hover{
+    transform:scale(1.2);
+}
 footer .socials .media img{
     width:100%;
     max-width: 100%;
 }
 
+footer .lgo_socials p{
+    color:whitesmoke;
+}
 footer .lgo_socials .lgo h1{
     font-size:3rem;
 }
