@@ -23,7 +23,7 @@ block content
      .toselect 
       h1  Please Select The Program You Offered in Senior High School.
      .options 
-      form(action="" name="programoffered")
+      form(action="" name="programoffered" id="courseform")
        .form_cont
         .opt_cont
             label(for="gs") General Science 
@@ -45,5 +45,5 @@ block content
             input(type="checkbox",class="opt" name="program" value="technical" id="tl")  
        .submit 
         input(type="submit", value="continue >>")   
-         
+    script(src="./js/main.js")         
         
