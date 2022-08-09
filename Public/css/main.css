@@ -10,7 +10,7 @@ body{
 
 body .navbar{
     height:14vh;
-    background-color: white;
+    background-color: rgb(20, 99, 99);
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -58,7 +58,7 @@ body .navbar .links{
 body .navbar .links a{
   text-decoration: none;
   font-size: 2rem;
-  color:rgb(20, 99, 99);
+  color:white;
   font-weight: bold;
 }
 
@@ -146,8 +146,21 @@ main .form_cont .opt_cont{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding:1rem;
+    padding:0.8rem;
     border-radius:8px;
+    cursor:pointer;
+}
+main .form_cont .opt_cont:hover{
+    background-color:white;
+    color:rgb(20, 99, 99);
+}
+main .form_cont .opt_cont:active{
+    background-color: rgb(20, 99, 99);
+    color:white;
+}
+
+main .opt_cont label, main .opt_cont input[type="checkbox"]{
+    cursor: pointer;
 }
 
 main form .submit{
@@ -175,3 +188,57 @@ main form .submit input[type="submit"]{
     position: relative;
     right:-1000px;
 }
+
+footer{
+    padding:1rem;
+    background-color:#32404d;
+}
+footer .lgo_socials{
+    display:flex;
+    align-items:center;
+    justify-content: space-around;
+}
+
+footer .lgo_socials .lgo{
+    padding:1rem;
+    
+   
+}
+footer .lgo_socials .socials{
+    padding:1rem;
+    
+}
+footer .lgo_socials .socials .media{
+   
+    display:flex;
+    flex-wrap: nowrap;
+}
+
+footer .socials .media a{
+    display: block;
+    width:30px;
+}
+footer .socials .media img{
+    width:100%;
+    max-width: 100%;
+}
+
+footer .lgo_socials .lgo h1{
+    font-size:3rem;
+}
+footer .lgo .frs{
+    color:rgb(57, 143, 143);
+}
+footer .lgo .sec{
+    color:rgb(235, 189, 111);
+}
+footer .socials h1{
+    color:rgb(235, 189, 111);
+}
+footer .copyright p{
+    padding-top:1rem;
+    text-align: center;
+    font-size: 1.3rem;
+    color:white;
+}
+
