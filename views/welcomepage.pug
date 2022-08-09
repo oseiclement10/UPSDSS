@@ -18,12 +18,15 @@ block content
        img(src="./images/learn__1.png", alt="decision guide")
       .intro 
        .intro_msg  
-        h1 Welcome 
-        p John Doe 
+        h1 Welcome
+        if name  
+         p= name
+        else 
+         p John Doe 
      .toselect 
       h1  Please Select The Program You Offered in Senior High School.
      .options 
-      form(action="" name="programoffered" id="courseform")
+      form(action="" name="programoffered" id="courseform" method="post")
        .form_cont
         .opt_cont
             label(for="gs") General Science 

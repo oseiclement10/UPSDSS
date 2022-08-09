@@ -16,6 +16,6 @@ form.addEventListener("submit",e=>{
         alert("You Must Select At least 1 Program");
     }else if(checkSelected()>1){
         e.preventDefault();
-        alert("Select Only 1 program")
+        alert("Select Only 1 program");
     }
 })

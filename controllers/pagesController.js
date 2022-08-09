@@ -21,7 +21,13 @@ const getSignupPage = (req,res,next)=>{
 }
 
 const getWelcomePage = (req,res,next)=>{
-    res.render('welcomepage');
+    if(req.query.n){
+        res.render('welcomepage',{
+            name:`${req.query.n}`
+        })
+    }else{
+        res.render('welcomepage');
+    };
 }
 
 const getLoginPage = (req,res,next)=>{

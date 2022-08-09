@@ -50,7 +50,9 @@ const logInUser = (req,res,next)=>{
           console.log(err);
           res.redirect('/login?e=error');
         }else{
-          res.redirect('/welcome');
+          let urlname = req.user.username||"";
+
+          res.redirect(`/welcome?n=${urlname}`);
         }
       })
     }
