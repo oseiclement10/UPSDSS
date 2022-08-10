@@ -1,8 +1,9 @@
 const express = require('express');
 const {body} = require('express-validator');
-const { signUpUser,logInUser } = require('../controllers/userController');
-
+const { signUpUser,logInUser,updateUserCourse } = require('../controllers/userController');
 const router = express.Router();
+
+const ensureAuthenticated = require('../configs/ensureAuth');
 
 router.post("/signup",
 body('username').trim().escape(),
@@ -17,5 +18,6 @@ body('password').escape(),
 logInUser
 )
 
+router.post("/course",ensureAuthenticated,updateUserCourse);
 
 module.exports = router;

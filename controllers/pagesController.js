@@ -49,11 +49,15 @@ const getLoginPage = (req,res,next)=>{
     }
 }
 
-
+const getProgramDetailPage = (req,res,next) =>{
+    res.render('programdetails');
+}
 module.exports = {
     start,
     getLoginPage,
     getWelcomePage,
     getSignupPage,
-    logOut
+    logOut,
+    getProgramDetailPage
+    
 }

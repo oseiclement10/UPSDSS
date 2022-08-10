@@ -3,6 +3,7 @@ const userQuery = "Insert into users(username,email,password)values(?,?,?)";
 const bcrypt = require('bcryptjs');
 const {validationResult} = require('express-validator');
 const passport = require('passport');
+const User = require('../models/User');
 
 const signUpUser = (req,res,next) =>{
   const errors = validationResult(req);
@@ -59,7 +60,28 @@ const logInUser = (req,res,next)=>{
   })(req,res,next);
 }
 
+const updateUserCourse = (req,res,next)=>{
+    let username = req.user.username;
+    let id = req.user.id;
+    let shsprogram = req.body.program;
+    
+    let user = new User(id,username);
+    
+    user.loadCourse(shsprogram);
+    user.db.query(user.queries.updateCourse,[shsprogram,id],(err,rows)=>{
+      if(err){
+        console.log(err);
+        res.redirect('/welcome');
+      }else{
+         res.redirect('/program_details');
+      }
+    })
+
+   
+}
+
 module.exports = {
     signUpUser,
-    logInUser
+    logInUser,
+    updateUserCourse
 }

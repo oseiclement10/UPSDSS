@@ -1,25 +1,21 @@
 const express = require('express');
 const router = express.Router();
-
+const ensureAuthenticated = require('../configs/ensureAuth');
 const {start,
     getLoginPage,
     getWelcomePage,
     getSignupPage,
-    logOut
+    logOut,
+    getProgramDetailPage
 } = require('../controllers/pagesController');
 
-function ensureAuthenticated(req,res,next){
-    if(!req.isAuthenticated()){
-        res.redirect('/login?e=notAuthorized');
-    }else{
-        next();
-    } 
-}
+
 
 router.get('/start',start);
 router.get('/login',getLoginPage);
 router.get('/logout',logOut);
 router.get('/signup',getSignupPage);
 router.get('/welcome',ensureAuthenticated,getWelcomePage);
+router.get('/program_details',ensureAuthenticated,getProgramDetailPage);
 
 module.exports = router;

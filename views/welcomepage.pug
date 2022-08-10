@@ -1,17 +1,5 @@
 extends layout.pug 
 block content 
-    header 
-     .navbar 
-      .logo 
-       .logo_image 
-        img(src="./images/brainwork.png", alt="UPS", srcset="")
-       .logo_text 
-        h1
-         span.frs UPS
-         span.sec DSS
-      .links
-       a(href="/") Home 
-       a(href="/logout" id='logout') logout
     main
      .container 
       .illus 
@@ -26,7 +14,7 @@ block content
      .toselect 
       h1  Please Select The Program You Offered in Senior High School.
      .options 
-      form(action="" name="programoffered" id="courseform" method="post")
+      form(action="/users/course" name="programoffered" id="courseform" method="post")
        .form_cont
         .opt_cont
             label(for="gs") General Science 
