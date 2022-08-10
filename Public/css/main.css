@@ -260,3 +260,85 @@ footer .copyright p{
     color:white;
 }
 
+section#program_details {
+    padding:1rem;
+}
+
+section#program_details .intro{
+    display:flex;
+    height:40vh;
+    max-height: 40vh;
+    width:80%;
+    margin: auto;
+}
+section#program_details .intro .pd_image{
+   
+    flex:1;
+    height: inherit;
+}
+section#program_details .intro .pd_image img{
+    height: inherit;
+    width:100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+section#program_details .intro h1{
+   
+    text-align: center;
+    font-size: 2rem;
+    flex:1;
+    align-self: center;
+    justify-content: center;
+}
+section#program_details .personal_subjects_container{
+     width:80%;
+     margin:auto;
+     display: flex;
+     justify-content: space-between;
+     padding:1rem;
+     padding-bottom: 2rem;
+}   
+
+section#program_details .personal_details{
+    width: 50%;
+}
+section#program_details .personal_details .name{
+    display:flex;
+    border:1px solid black;
+    padding:8px;
+}
+section#program_details .personal_details .programoffered{
+    
+    display:flex;
+    border:1px solid black;
+    padding:8px;
+}
+section#program_details .core_subjects{
+    width:50%;
+    
+}
+section#program_details .core_subjects h2{
+    
+    padding-left: 2rem;
+}
+
+section#program_details .core_subjects ul {
+    list-style-type: none;
+   
+}
+section#program_details .core_subjects ul li{
+    padding:4px;
+    border:1px solid black;
+}
+section#program_details .electives_container{
+    padding:2rem 1rem; 
+}
+
+section#program_details .electives_container h2{
+    text-align: center;
+}
+
+section#program_details .electives_container h2 #red{
+    color:red;
+}

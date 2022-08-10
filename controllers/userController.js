@@ -73,7 +73,7 @@ const updateUserCourse = (req,res,next)=>{
         console.log(err);
         res.redirect('/welcome');
       }else{
-         res.redirect('/program_details');
+         res.redirect(`/program_details?v=${user.coursename}`);
       }
     })
 

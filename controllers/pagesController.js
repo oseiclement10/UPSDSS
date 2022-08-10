@@ -1,3 +1,4 @@
+const programs = require('../helpers/programs');
 
 const start = (req,res,next) => {
     if(req.isAuthenticated()){
@@ -50,7 +51,18 @@ const getLoginPage = (req,res,next)=>{
 }
 
 const getProgramDetailPage = (req,res,next) =>{
-    res.render('programdetails');
+    let program = req.query.v||null;
+    let program_choice = programs[`${program}`] || null;
+    if(!program){
+        res.redirect('/welcome?e=error')
+    }else if(!program_choice){
+        res.redirect('/welcome?e=error');
+    }else{
+        res.render('programdetails',{
+            electives:program_choice,
+        })
+    }
+   
 }
 module.exports = {
     start,
