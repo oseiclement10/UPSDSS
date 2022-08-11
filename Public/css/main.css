@@ -458,6 +458,10 @@ body .scores_container input[type="submit"]:hover{
     opacity: 0.8;
 }
 
+body .scores_container input[type="submit"]:active{
+    opacity: 0.3;
+}
+
 @keyframes err {
     0% {opacity:1}
     25% {opacity:0.8}
