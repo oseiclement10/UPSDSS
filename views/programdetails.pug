@@ -18,17 +18,30 @@ block content
    .core_subjects 
     h2 Core Subjects
     ul 
-     li English Language
-     li Mathematics
-     li Integrated Science 
-     li Social Studies   
+     li.core English Language
+     li.core Core Mathematics
+     li.core Integrated Science 
+     li.core Social Studies   
   hr   
   .electives_container 
    h2 Select Your  Elective Subjects (
     span#red  Electives Must be 4 in total 
     span )
-      
-   .electives 
-    if electives 
-     each subject in electives
-      .opt=subject
+       
+   if electives
+    .elective_form 
+     form(name = 'elective_subjects' class="elective_form" action=""  id="electiveform")  
+      .elective_subs
+       each subject in electives
+        .opt_cont 
+         label=subject
+         input(type="checkbox" class="opt2" name="elective" value=subject )
+      .submit   
+       input(type="submit" value="next >>")
+  .scores_container#scores_cont
+   h1 Enter The Scores You had In WASSCE (
+     span#red  Your Scores Must Be Accurate 
+     span )
+     
+   form(name="scores" class="scores_form" action="" id="scores_form" method="post")  
+ script(src="./js/main.js") 

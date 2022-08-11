@@ -1,6 +1,9 @@
 extends layout.pug 
 block content 
     main
+     if error 
+      .error_message(id="error_msg")
+       p=error
      .container 
       .illus 
        img(src="./images/learn__1.png", alt="decision guide")

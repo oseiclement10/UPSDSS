@@ -26,6 +26,10 @@ const getWelcomePage = (req,res,next)=>{
         res.render('welcomepage',{
             name:`${req.query.n}`
         })
+    }else if(req.query.e=="error"){
+        res.render('welcomepage',{
+            error: "An error occured please try again later"
+        })
     }else{
         res.render('welcomepage');
     };

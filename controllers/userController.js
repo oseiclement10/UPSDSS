@@ -71,7 +71,7 @@ const updateUserCourse = (req,res,next)=>{
     user.db.query(user.queries.updateCourse,[shsprogram,id],(err,rows)=>{
       if(err){
         console.log(err);
-        res.redirect('/welcome');
+        res.redirect('/welcome?e=error');
       }else{
          res.redirect(`/program_details?v=${user.coursename}`);
       }
