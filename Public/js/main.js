@@ -7,7 +7,14 @@ let elective_subjects_form_container = document.getElementById("scores_cont");
 
 let coresubjects = ['English Lanaguage','Core Mathematics','Integrated Science','Social Studies'];
 let electivessubjects=[];
-
+let scores_form = document.getElementById("scores_form");
+let submit_container = document.createElement('div');
+let submit = document.createElement('input');
+submit_container.classList.add('submitcont')
+submit.type="submit";
+submit.value = "continue";
+submit.classList.add("next");
+submit_container.appendChild(submit);
 
 function checkSelected(boxes){
     let count = 0;
@@ -22,12 +29,12 @@ function checkSelected(boxes){
 
 
 function createForm(data){
- let scores_form = document.getElementById("scores_form");
  let input_label_container = document.createElement('div');
  input_label_container.classList.add('opt');
  let input = document.createElement('input');
  input.max=100;
  input.min=0;
+ input.required=true;
  input.type="number";
  input.name = data;
  let label = document.createElement('label');
@@ -51,6 +58,7 @@ function builder(data){
     for(let i=0;i<data.length;i++){
         createForm(data[i]);
     }
+ scores_form.appendChild(submit_container);
 }
 
 if(program_offered_form){

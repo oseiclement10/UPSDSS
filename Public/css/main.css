@@ -408,6 +408,7 @@ body .elective_form input[type="submit"]:active{
 body .scores_container{
     padding:1rem;
     display: none;
+    padding-bottom: 2rem;
 }
 body .scores_container.show{
     display:block;
@@ -436,6 +437,25 @@ body .scores_container label{
 body .scores_container input{
     flex:1;
     padding:8px;
+}
+body .scores_container .submitcont{
+    padding-top: 1.5rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+body .scores_container input[type="submit"]{
+
+    color:white;
+    background-color: rgb(20, 99, 99);
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    padding:8px; 
+}
+
+body .scores_container input[type="submit"]:hover{
+    opacity: 0.8;
 }
 
 @keyframes err {
