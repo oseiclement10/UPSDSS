@@ -1,6 +1,9 @@
 const express = require('express');
 const {body} = require('express-validator');
-const { signUpUser,logInUser,updateUserCourse } = require('../controllers/userController');
+const { signUpUser,
+    logInUser,
+    updateUserCourse,
+    insertUserScores } = require('../controllers/userController');
 const router = express.Router();
 
 const ensureAuthenticated = require('../configs/ensureAuth');
@@ -20,4 +23,5 @@ logInUser
 
 router.post("/course",ensureAuthenticated,updateUserCourse);
 
+router.post("/program_details",ensureAuthenticated,insertUserScores);
 module.exports = router;

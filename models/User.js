@@ -1,6 +1,7 @@
 const db = require("../configs/database");
 class User {
     coursename = "";
+    examsscores = "";
 
     constructor(id,name){
         this.name = name;
@@ -8,16 +9,30 @@ class User {
         this.db = db;
 
         this.queries = {
-            updateCourse :  `update users set shsprogram=? where id = ?`,
+            updateProgram :  `update users set shsprogram=? where id = ?`,
+            updateProgramScores : `update users set examsscores=? where id=?`, 
         }
+            
     }
     
     loadCourse(coursename){
         this.coursename = coursename;
     }
 
+    loadExamsScores(examscores){
+         let scores;
+         let scores_string = [];
+
+        for(let key in examscores){
+            scores = `${key}=${examscores[key]}`;
+            scores_string.push(scores);    
+        }
+
+        this.examsscores = scores_string.toString();
+    }
     
 
 }
+
 
 module.exports = User;

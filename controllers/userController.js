@@ -68,7 +68,7 @@ const updateUserCourse = (req,res,next)=>{
     let user = new User(id,username);
     
     user.loadCourse(shsprogram);
-    user.db.query(user.queries.updateCourse,[shsprogram,id],(err,rows)=>{
+    user.db.query(user.queries.updateProgram,[shsprogram,id],(err,rows)=>{
       if(err){
         console.log(err);
         res.redirect('/welcome?e=error');
@@ -76,12 +76,30 @@ const updateUserCourse = (req,res,next)=>{
          res.redirect(`/program_details?v=${user.coursename}`);
       }
     })
-
-   
 }
+
+const insertUserScores = (req,res,next)=>{
+    let username = req.user.username;
+    let id = req.user.id;
+
+    let user = new User(id,username);
+    user.loadExamsScores(req.body);
+
+    user.db.query(user.queries.updateProgramScores,[user.examsscores,id],(err,rows)=>{
+        if(err){
+          console.log(err);
+          res.redirect('/welcome?e=errror');
+        }else{
+          res.redirect('/program_success');
+        }
+    })
+}
+
+
 
 module.exports = {
     signUpUser,
     logInUser,
-    updateUserCourse
+    updateUserCourse,
+    insertUserScores
 }

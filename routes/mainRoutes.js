@@ -6,7 +6,8 @@ const {start,
     getWelcomePage,
     getSignupPage,
     logOut,
-    getProgramDetailPage
+    getProgramDetailPage,
+    getProgramSuccessPage
 } = require('../controllers/pagesController');
 
 
@@ -17,5 +18,6 @@ router.get('/logout',logOut);
 router.get('/signup',getSignupPage);
 router.get('/welcome',ensureAuthenticated,getWelcomePage);
 router.get('/program_details',ensureAuthenticated,getProgramDetailPage);
+router.get('/program_success',ensureAuthenticated,getProgramSuccessPage);
 
 module.exports = router;

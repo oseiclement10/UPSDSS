@@ -68,12 +68,17 @@ const getProgramDetailPage = (req,res,next) =>{
     }
    
 }
+
+const getProgramSuccessPage = (req,res,next)=>{
+    res.render('programsgraphic');
+}
 module.exports = {
     start,
     getLoginPage,
     getWelcomePage,
     getSignupPage,
     logOut,
-    getProgramDetailPage
+    getProgramDetailPage,
+    getProgramSuccessPage
     
 }
