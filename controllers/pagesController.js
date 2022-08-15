@@ -57,6 +57,10 @@ const getLoginPage = (req,res,next)=>{
 const getProgramDetailPage = (req,res,next) =>{
     let program = req.query.v||null;
     let program_choice = programs[`${program}`] || null;
+    let user = {
+        username:req.user.username,
+        shsprogram:req.user.shsprogram
+    }
     if(!program){
         res.redirect('/welcome?e=error')
     }else if(!program_choice){
@@ -64,6 +68,7 @@ const getProgramDetailPage = (req,res,next) =>{
     }else{
         res.render('programdetails',{
             electives:program_choice,
+            user:user
         })
     }
    

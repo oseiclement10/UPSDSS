@@ -323,11 +323,21 @@ section#program_details .personal_details .name{
     border:1px solid black;
     padding:8px;
 }
+section#program_details .personal_details .name p{
+    text-transform: capitalize;
+    
+}
+
+
 section#program_details .personal_details .programoffered{
     
     display:flex;
     border:1px solid black;
     padding:8px;
+}
+
+section#program_details .personal_details .programoffered p{
+    text-transform: capitalize;
 }
 section#program_details .core_subjects{
     width:50%;
@@ -420,6 +430,14 @@ body .scores_container h1{
 body .scores_container h1 span#red{
     color:red;
 }
+
+body .scores_container p{
+    color:gray;
+    font-weight: bold;
+    padding:1rem;
+    margin-bottom:3rem ;
+    text-align: center;
+}
 body .scores_container form{
     width:50%;
     margin:auto;
@@ -437,12 +455,18 @@ body .scores_container label{
 body .scores_container input{
     flex:1;
     padding:8px;
+    border-radius: 4px;
+    border:1px solid gray;
 }
 body .scores_container .submitcont{
     padding-top: 1.5rem;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+}
+
+body .scores_container .invalid{
+    border:1px solid red;
 }
 body .scores_container input[type="submit"]{
 

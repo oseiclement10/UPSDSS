@@ -9,15 +9,23 @@ block content
   .personal_subjects_container 
    .personal_details
     h1 Personal Details 
-    .name 
-     p Name : &nbsp;
-     p Real Name
-    .programoffered 
-     p Program Offered In SHS : &nbsp;
-     p Program Name 
+    .name
+     if user
+      p Name : &nbsp;
+      p=user.username
+     else 
+      p Name : &nbsp;
+      p John Doe  
+    .programoffered
+     if user 
+      p Program Offered In SHS : &nbsp;
+      p= user.shsprogram 
+     else 
+      p Program Offered In SHS : &nbsp;
+      p Now loading... 
    .core_subjects 
     h2 Core Subjects
-    ul 
+    ul  
      li.core English Language
      li.core Core Mathematics
      li.core Integrated Science 
@@ -39,9 +47,10 @@ block content
       .submit   
        input(type="submit" value="next >>")
   .scores_container#scores_cont
-   h1 ENTER THE SCORES YOU HAD IN WASSCE (
-     span#red  Your Scores Must Be Accurate
+   h1 ENTER THE GRADES YOU HAD IN WASSCE (
+     span#red  Your Grades Must Be Accurate 
      span )
+   p NB: Grades should be the same as on WASSCE results. Grades should be one of (A1,B2,B3,C4,C5,C6,D7,E8 and F9)  
      
    form(name="scores"  class="scores_form" action="/users/program_details" id="scores_form" method="post")  
  script(src="./js/main.js") 
