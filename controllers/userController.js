@@ -81,19 +81,37 @@ const updateUserCourse = (req,res,next)=>{
 const insertUserScores = (req,res,next)=>{
     let username = req.user.username;
     let id = req.user.id;
-
     let user = new User(id,username);
     user.loadExamsScores(req.body);
-
+    user.calculateCutOff(user.examsscores_array);
+    user.loadInterestandWeakness();
+    
     user.db.query(user.queries.updateProgramScores,[user.examsscores,id],(err,rows)=>{
         if(err){
           console.log(err);
-          res.redirect('/welcome?e=errror');
-        }else{
-          res.redirect('/program_success');
+          res.redirect('/welcome?e=error');
+        }else {
+          user.db.query(user.queries.updateStrength,[user.strengths,id],(err,rows)=>{
+            if(err){
+              console.log(err);
+              res.redirect('/welcome?e=error');
+            }else{
+               user.db.query(user.queries.updateWeakness,[user.weakness,id],(err,rows)=>{
+                if(err){
+                  console.log(err);
+                  res.redirect('/welcome?e=error');
+                }else{
+                  res.redirect(`/program_success?c=${user.cutoffpoint}`);
+                }
+               }) 
+            }
+          })
         }
     })
 }
+{
+          
+        }
 
 
 

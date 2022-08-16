@@ -75,7 +75,10 @@ const getProgramDetailPage = (req,res,next) =>{
 }
 
 const getProgramSuccessPage = (req,res,next)=>{
-    res.render('programsgraphic');
+    let cutoff = req.query.c;
+    res.render('programsgraphic',{
+        cutoff:cutoff,
+    });
 }
 module.exports = {
     start,
