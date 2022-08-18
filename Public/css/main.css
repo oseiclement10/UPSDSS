@@ -181,7 +181,7 @@ main .form_cont .opt_cont:active{
     color:white;
 }
 
-main .opt_cont label, main .opt_cont input[type="checkbox"]{
+main .opt_cont label, main .opt_cont input[type="radio"]{
     cursor: pointer;
 }
 

@@ -64,19 +64,19 @@ function builder(data){
  scores_form.appendChild(submit_container);
 }
 
-if(program_offered_form){
-    program_offered_form.addEventListener('submit',(e)=>{
+// if(program_offered_form){
+//     program_offered_form.addEventListener('submit',(e)=>{
    
-        if(checkSelected(program_offered)==0){
-            e.preventDefault();
-            alert("You Must Select At least 1 Program");
-        }else if(checkSelected(program_offered)>1){
-            e.preventDefault();
-            alert("Select Only 1 program");
-        }
-    }
-    )
-}
+//         if(checkSelected(program_offered)==0){
+//             e.preventDefault();
+//             alert("You Must Select At least 1 Program");
+//         }else if(checkSelected(program_offered)>1){
+//             e.preventDefault();
+//             alert("Select Only 1 program");
+//         }
+//     }
+//     )
+// }
 
 
 if(elective_subjects_form){
