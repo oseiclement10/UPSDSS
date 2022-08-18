@@ -1,5 +1,26 @@
 extends layout.pug 
-block content 
- h2 success !!
- if cutoff 
-  p=cutoff
+block content
+  script(type="text/javascript" src="https://www.gstatic.com/charts/loader.js")
+  section#graphic
+   .intro   
+    if username 
+     .username 
+      h1=username
+    else 
+     .username 
+      h1 John Doe
+    .intro_img 
+     img(src="./images/success.png") 
+   if cutoff
+    .cutoff 
+      p WASSCE Aggregate Calculated = &nbsp;
+       span=cutoff
+   .strength_graph     
+    .space(id="barchart_values" style="width=fit-content; height: auto;")  
+    if strength
+     .strength
+      h1 Key Strengths
+      each str in strength 
+       p=str
+  hr        
+  script(type="text/javascript" src="./js/chart.js")    

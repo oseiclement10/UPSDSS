@@ -109,15 +109,23 @@ const insertUserScores = (req,res,next)=>{
         }
     })
 }
-{
-          
-        }
 
 
+const getCurrentUserGrades = (req,res,next) =>{
+  console.log('handler reached');
+  let scores;
+  scores = req.user?.examsscores;
+  if(scores){
+    res.json(scores);
+  }else{
+    res.json({});
+  }
+}
 
-module.exports = {
+module.exports = { 
     signUpUser,
     logInUser,
     updateUserCourse,
-    insertUserScores
+    insertUserScores,
+    getCurrentUserGrades
 }

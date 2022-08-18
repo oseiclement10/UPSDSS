@@ -3,11 +3,14 @@ const {body} = require('express-validator');
 const { signUpUser,
     logInUser,
     updateUserCourse,
-    insertUserScores } = require('../controllers/userController');
+    insertUserScores,
+    getCurrentUserGrades} = require('../controllers/userController');
+
 const router = express.Router();
 
 const ensureAuthenticated = require('../configs/ensureAuth');
 
+router.get("/grades",getCurrentUserGrades);
 router.post("/signup",
 body('username').trim().escape(),
 body('email').isEmail().normalizeEmail(),

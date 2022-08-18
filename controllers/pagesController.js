@@ -1,5 +1,11 @@
 const programs = require('../helpers/programs');
 
+function clean(string){
+    let words = string.split(",");
+    let newString = words.map(elem=>elem.substring(0,elem.length-2));
+    return newString;
+}
+
 const start = (req,res,next) => {
     if(req.isAuthenticated()){
         res.render('welcomepage');
@@ -76,8 +82,16 @@ const getProgramDetailPage = (req,res,next) =>{
 
 const getProgramSuccessPage = (req,res,next)=>{
     let cutoff = req.query.c;
+    let strengths = clean (req.user.strengths);
+
+    let weakness = req.user.weakness;
+    let username = req.user.username;
+    
     res.render('programsgraphic',{
+        username:username,
         cutoff:cutoff,
+        strength:strengths,
+        weakness:weakness
     });
 }
 module.exports = {

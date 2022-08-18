@@ -71,7 +71,7 @@ class User {
         let coreSubjects = sort(this.examsscores_array.slice(0,4));
         let electiveSubjects = sort(this.examsscores_array.slice(4,this.examsscores_array.length));
         let cutoff = sumUp(coreSubjects,3) + sumUp(electiveSubjects,3);
-        this.cutoffpoint = cutoff;
+        this.cutoffpoint = (`${cutoff}`.length ==2)? `${cutoff}`: `0${cutoff}` ;
     }
 
     loadInterestandWeakness(){
@@ -93,8 +93,8 @@ class User {
         let strengths = sort(this.examsscores_array).slice(0,3);
         let weakness = sort(this.examsscores_array).slice(6,8);
 
-        this.strengths = strengths.map(elem=>elem.slice(0,elem.length-2)).toString();
-        this.weakness = weakness.map(elem=>elem.slice(0,elem.length-2)).toString();
+        this.strengths =  strengths.toString();
+        this.weakness  =  weakness.toString();
     }
 
     
