@@ -527,11 +527,14 @@ body #graphic .cutoff{
     margin:2rem auto;
     width:fit-content;
     padding:10px;
+    border-radius: 5px;
+    background-color: rgb(20, 99, 99);
 }
 body #graphic .cutoff p{
     font-weight: bold;
     text-indent: 3rem;
     font-size: 1.4rem;
+    color:white;
 }
 body .strength_graph{
    
@@ -541,7 +544,8 @@ body .strength_graph{
 }
 
 body .strength p{
-    color:green;
+    color:darkgreen;
+    font-weight:300;
 }
 
 @keyframes err {

@@ -112,7 +112,6 @@ const insertUserScores = (req,res,next)=>{
 
 
 const getCurrentUserGrades = (req,res,next) =>{
-  console.log('handler reached');
   let scores;
   scores = req.user?.examsscores;
   if(scores){
