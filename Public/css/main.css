@@ -547,7 +547,29 @@ body .strength p{
     color:darkgreen;
     font-weight:300;
 }
+body .outro{
+    padding:2rem;
+}
+body .outro p{
+    font-size: 1.2rem;
+}
+body .outro a{
+    background-color: rgb(20, 99, 99);
+    color:white;
+    border-radius: 4px;
+    padding:6px 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+body .outro a:hover{
+    opacity: 0.8;
+}
 
+body .outro a:active{
+    color:rgb(20, 99, 99);
+    background-color: white;
+    border:1px solid rgb(20, 99, 99);
+}
 @keyframes err {
     0% {opacity:1}
     25% {opacity:0.8}
