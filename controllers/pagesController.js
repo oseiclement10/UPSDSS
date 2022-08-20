@@ -94,6 +94,10 @@ const getProgramSuccessPage = (req,res,next)=>{
         weakness:weakness
     });
 }
+
+const getInterestPage = (req,res,next)=>{
+    res.render("interestpage");
+}
 module.exports = {
     start,
     getLoginPage,
@@ -101,6 +105,6 @@ module.exports = {
     getSignupPage,
     logOut,
     getProgramDetailPage,
-    getProgramSuccessPage
-    
+    getProgramSuccessPage,
+    getInterestPage
 }

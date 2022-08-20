@@ -11,6 +11,7 @@ const router = express.Router();
 const ensureAuthenticated = require('../configs/ensureAuth');
 
 router.get("/grades",getCurrentUserGrades);
+
 router.post("/signup",
 body('username').trim().escape(),
 body('email').isEmail().normalizeEmail(),
@@ -27,4 +28,6 @@ logInUser
 router.post("/course",ensureAuthenticated,updateUserCourse);
 
 router.post("/program_details",ensureAuthenticated,insertUserScores);
+
+
 module.exports = router;
