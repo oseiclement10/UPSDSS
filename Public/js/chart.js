@@ -1,14 +1,5 @@
 google.charts.load("current", {packages:["corechart"]});
-let somedata = [
-    ["eng",60,"C4"],
-    ["social",80,"A1"],
-    ["Maths",70,"B2"],
-    ["history",65,"B2"],
-    ["biology",75,"A1"],
-    ["physics",55,"c5"],
-    ["chemistry",85,"A1"],
-    ["government",45,"f9"],
-];
+
 
 function getScore(grade){
     switch(grade){
@@ -35,6 +26,7 @@ function getScore(grade){
 
     }
 }
+
 
 function getColor(grade){
     switch(grade){
@@ -142,3 +134,4 @@ function drawChart(data) {
     var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
     chart.draw(view, options);
 }
+

@@ -64,13 +64,11 @@ const updateUserCourse = (req,res,next)=>{
     let username = req.user.username;
     let id = req.user.id;
     let shsprogram = req.body.program;
-    
     let user = new User(id,username);
     
     user.loadCourse(shsprogram);
     user.db.query(user.queries.updateProgram,[shsprogram,id],(err,rows)=>{
       if(err){
-        console.log(err);
         res.redirect('/welcome?e=error');
       }else{
          res.redirect(`/program_details?v=${user.coursename}`);
