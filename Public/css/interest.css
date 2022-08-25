@@ -94,6 +94,10 @@ body .content_holder ul li{
     border-left:5px solid rgb(20, 96, 91);
     margin-bottom: 4px;
 }
+body .content_holder .notes p{
+    color:black;
+    text-shadow: 2px 3px 3px 2px rgba(0,0,0,0.12);
+}
 body .content_holder .description ul{
     list-style-type: none;
 }
@@ -145,4 +149,8 @@ body .interest_form .sub input[type="submit"]{
 }
 body .interest_form .sub input[type="submit"]:hover{
     opacity: 0.8;
+}
+
+body #red{
+    color:red;
 }
