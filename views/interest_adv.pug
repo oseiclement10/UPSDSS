@@ -1,0 +1,23 @@
+extends layout.pug 
+block content 
+ section#adv_interest 
+  .intro_container 
+   .details
+    p Name : 
+     span=username
+    p Shs Program :
+     span=shsprogram 
+    p Aggregate calculated :
+     span=cutoff   
+   .img
+    img(src="./images/success.png", alt="interest second image")
+  
+  .info
+   h2 Note :
+   p Universities may use your aggregate to match up against cutoff point required by any program you apply for.
+   P Based on the number of people applying for a particular program the cutoff point is either increased or reduced 
+    span (+ or -) 1.
+  
+  .available 
+   h2 The Programs available based on the aggregate you scored in WASSCE is  
+   

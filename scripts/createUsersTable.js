@@ -9,16 +9,18 @@ const dB = mysql.createConnection({
     database:properties.database
 });
 
-const query = `create table Users(
-    id int(100) auto_increment not null,
-    username varchar(100) not null,
-    email varchar(100) not null,
-    password varchar (1000) not null,
+const query = `CREATE TABLE USERS (
+    id int(100) not null,
+    username varchar(100),
+    email varchar(100),
+    password varchar(1000),
     shsprogram varchar(500),
+    examsscores varchar(1000),
+    aggregate int(4),
     interests varchar(500),
     strengths varchar(200),
     weakness varchar(200),
-    primary key(id)
+    primary key (id)
     )`;
 
 function createUserTable(){

@@ -102,6 +102,16 @@ const getInterestPage = (req,res,next)=>{
         shsprogram:shsprogram,
     });
 }
+
+const getAdvInterestPage = (req,res,next)=>{
+    let user = {};
+    user.username = req.body.username;
+    user.shsprogram = req.body.shsprogram;
+    user.aggregate = req.body.aggregate;
+    res.render("interest_adv",{
+        data:user
+    });
+}
 module.exports = {
     start,
     getLoginPage,
@@ -110,5 +120,6 @@ module.exports = {
     logOut,
     getProgramDetailPage,
     getProgramSuccessPage,
-    getInterestPage
+    getInterestPage,
+    getAdvInterestPage
 }

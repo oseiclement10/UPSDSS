@@ -4,7 +4,9 @@ const { signUpUser,
     logInUser,
     updateUserCourse,
     insertUserScores,
-    getCurrentUserGrades} = require('../controllers/userController');
+    getCurrentUserGrades,
+    updateUserInterestFields
+} = require('../controllers/userController');
 
 const router = express.Router();
 
@@ -28,6 +30,6 @@ logInUser
 router.post("/course",ensureAuthenticated,updateUserCourse);
 
 router.post("/program_details",ensureAuthenticated,insertUserScores);
-
+router.post("/interest",ensureAuthenticated,updateUserInterestFields);
 
 module.exports = router;

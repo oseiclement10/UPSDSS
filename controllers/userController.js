@@ -84,30 +84,22 @@ const insertUserScores = (req,res,next)=>{
     user.calculateCutOff(user.examsscores_array);
     user.loadInterestandWeakness();
     
-    user.db.query(user.queries.updateProgramScores,[user.examsscores,id],(err,rows)=>{
+    user.db.query(user.queries.updateAll,
+      [user.examsscores,user.strengths,user.weakness,user.aggregate,id],(err,rows)=>{
         if(err){
           console.log(err);
           res.redirect('/welcome?e=error');
-        }else {
-          user.db.query(user.queries.updateStrength,[user.strengths,id],(err,rows)=>{
-            if(err){
-              console.log(err);
-              res.redirect('/welcome?e=error');
-            }else{
-               user.db.query(user.queries.updateWeakness,[user.weakness,id],(err,rows)=>{
-                if(err){
-                  console.log(err);
-                  res.redirect('/welcome?e=error');
-                }else{
-                  res.redirect(`/program_success?c=${user.cutoffpoint}`);
-                }
-               }) 
-            }
-          })
+        }else{
+          res.redirect(`/program_success?c=${user.aggregate}`);
         }
-    })
-}
 
+      })
+  
+  }
+
+const updateUserInterestFields = (req,res,next)=>{
+  res.redirect("/user_interest_adv");
+}
 
 const getCurrentUserGrades = (req,res,next) =>{
   let scores;
@@ -124,5 +116,6 @@ module.exports = {
     logInUser,
     updateUserCourse,
     insertUserScores,
+    updateUserInterestFields,
     getCurrentUserGrades
 }

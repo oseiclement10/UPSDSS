@@ -6,7 +6,7 @@ class User {
     examscores_raw=[];
     strengths="";
     weakness="";
-    cutoffpoint = null;
+    aggregate = null;
 
     constructor(id,name){
         this.name = name;
@@ -17,7 +17,9 @@ class User {
             updateProgram :  `update users set shsprogram=? where id = ?`,
             updateProgramScores : `update users set examsscores=? where id=?`, 
             updateStrength: `update users set strengths = ? where id=?`,
-            updateWeakness:`update users set weakness=? where id = ?`
+            updateWeakness:`update users set weakness=? where id = ?`,
+            updateAggregate:`upadte users set aggregate=? where id=?`,
+            updateAll:`update users set examsscores=?,strengths=?,weakness=?,aggregate=? where id=?`
         }
             
     }
@@ -44,7 +46,8 @@ class User {
         
     }
 
-    calculateCutOff(examscores){     
+    calculateCutOff(examscores){   
+
       function sort(arr){
         let temp;
 	    let len= arr.length;
@@ -71,7 +74,7 @@ class User {
         let coreSubjects = sort(this.examsscores_array.slice(0,4));
         let electiveSubjects = sort(this.examsscores_array.slice(4,this.examsscores_array.length));
         let cutoff = sumUp(coreSubjects,3) + sumUp(electiveSubjects,3);
-        this.cutoffpoint = (`${cutoff}`.length ==2)? `${cutoff}`: `0${cutoff}` ;
+        this.aggregate = (`${cutoff}`.length ==2)? `${cutoff}`: `0${cutoff}` ;
     }
 
     loadInterestandWeakness(){
