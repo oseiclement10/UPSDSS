@@ -5,6 +5,10 @@ let error_message = document.getElementById("error_msg")||null;
 let elective_subjects_form = document.getElementById("electiveform");
 let elective_subjects_form_container = document.getElementById("scores_cont");
 let elective_scores = document.getElementById("scores_form");
+let shsprogram = document.getElementById("shsprogram");
+
+let interest_form = document.getElementById("interest_form");
+let interest_vals = document.getElementsByClassName("int");
 
 let coresubjects = ['English Lanaguage','Core Mathematics','Integrated Science','Social Studies'];
 let electivessubjects=[];
@@ -27,7 +31,20 @@ function checkSelected(boxes){
     return count;
 }
 
-
+function validateElectiveInput(){
+    let valid = ["A1","B2","B3","C4","C5","C6","D7","E8","F9"];
+    let inputs = document.getElementsByClassName('escores');
+    for(let i =0; i < inputs.length; i++){
+        if(!(valid.includes((inputs[i].value).toUpperCase()))){
+            alert("invalid grade entered");
+            inputs[i].focus();
+           
+            return false;
+            break;
+        }
+    }
+    return true;
+}
 
 function createForm(data){
  let input_label_container = document.createElement('div');
@@ -64,19 +81,133 @@ function builder(data){
  scores_form.appendChild(submit_container);
 }
 
-// if(program_offered_form){
-//     program_offered_form.addEventListener('submit',(e)=>{
+function inform(info){
+    alert(info);
+    return;
+}
+
+function decideInterest(shsprogram,interest){
+
+    switch(shsprogram){
+        case "General Sciene":
+             return true;
+        case "Business":
+             if(interest=="Health and Allied Sciences"){
+                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                return false;
+             }else if(interest=="Engineering"){
+                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                return false;
+             }else if(interest=="Art and Built Environment"){
+                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                return false;
+             }else if(interest=="Science"){
+                return true;
+             }else if(interest=="Humanities and Social Science"){
+                return true;
+             }else if(interest=="Agriculture and Natural Resources"){
+                return true;
+             }          
+        case "General Arts":
+             if(interest=="Health and Allied Sciences"){
+               return true;
+             }else if(interest=="Engineering"){
+                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                return false;
+             }else if(interest=="Art and Built Environment"){
+                return true;
+             }else if(interest=="Science"){
+                return true;
+             }else if(interest=="Humanities and Social Science"){
+                return true;
+             }else if(interest=="Agriculture and Natural Resources"){
+                return true;
+             }          
+        case "Home Economics":
+            if(interest=="Health and Allied Sciences"){
+                return true;
+             }else if(interest=="Engineering"){
+                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                return false;
+             }else if(interest=="Art and Built Environment"){
+                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                return false;
+             }else if(interest=="Science"){
+                return true;
+             }else if(interest=="Humanities and Social Science"){
+                return true;
+             }else if(interest=="Agriculture and Natural Resources"){
+                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                return false;
+             }          
+        case "Agriculture":
+            if(interest=="Health and Allied Sciences"){
+                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                return false;
+             }else if(interest=="Engineering"){
+                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                return false;
+             }else if(interest=="Art and Built Environment"){
+                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                return false;
+             }else if(interest=="Science"){
+                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                return false;
+             }else if(interest=="Humanities and Social Science"){
+                return true;
+             }else if(interest=="Agriculture and Natural Resources"){
+                return true;
+             }          
+        case "Technical":
+            if(interest=="Health and Allied Sciences"){
+                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                return false;
+             }else if(interest=="Engineering"){
+                return true;
+             }else if(interest=="Art and Built Environment"){
+                return true;
+             }else if(interest=="Science"){
+                return true;
+             }else if(interest=="Humanities and Social Science"){
+                return true;
+             }else if(interest=="Agriculture and Natural Resources"){
+                return true;
+             }          
+        case "Visual Arts":   
+        if(interest=="Health and Allied Sciences"){
+            inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+            return false;
+         }else if(interest=="Engineering"){
+            inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+            return false;
+         }else if(interest=="Art and Built Environment"){
+            inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+            return false;
+         }else if(interest=="Science"){
+            inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+            return false;
+         }else if(interest=="Humanities and Social Science"){
+            return true;
+         }else if(interest=="Agriculture and Natural Resources"){
+            return true;
+         }          
+
+    }
+
+}
+
+
+
+if(program_offered_form){
+    program_offered_form.addEventListener('submit',(e)=>{
    
-//         if(checkSelected(program_offered)==0){
-//             e.preventDefault();
-//             alert("You Must Select At least 1 Program");
-//         }else if(checkSelected(program_offered)>1){
-//             e.preventDefault();
-//             alert("Select Only 1 program");
-//         }
-//     }
-//     )
-// }
+        if(checkSelected(program_offered)==0){
+            e.preventDefault();
+            alert("You Must Select At least 1 Program");
+        }
+    }
+    )
+}
 
 
 if(elective_subjects_form){
@@ -96,23 +227,35 @@ if(elective_subjects_form){
     })    
 }
 
-scores_form.addEventListener("submit",(e)=>{
-    if(!validateElectiveInput()){
-        e.preventDefault();
-    }
-})
-
-function validateElectiveInput(){
-    let valid = ["A1","B2","B3","C4","C5","C6","D7","E8","F9"];
-    let inputs = document.getElementsByClassName('escores');
-    for(let i =0; i < inputs.length; i++){
-        if(!(valid.includes((inputs[i].value).toUpperCase()))){
-            alert("invalid grade entered");
-            inputs[i].focus();
-           
-            return false;
-            break;
+if(scores_form){
+    scores_form.addEventListener("submit",(e)=>{
+        if(!validateElectiveInput()){
+            e.preventDefault();
         }
-    }
-    return true;
+    })
+    
 }
+
+if(interest_form){
+    interest_form.addEventListener("submit",(e)=>{
+        if(checkSelected(interest_vals)==0){
+            alert("select at least 1 field that interest you");
+            e.preventDefault();
+        }else if(checkSelected(interest_vals)>3){
+            alert("The maximum number of fields you can select is 3 you have selected "+ checkSelected(interest_vals));
+            e.preventDefault();
+        }
+    })
+}
+
+if(interest_form){
+    let len = interest_vals.length;
+    for(let i=0;i<len;i++){
+        interest_vals[i].addEventListener("change",e=>{
+            if(e.target.checked){
+                e.target.checked = decideInterest(shsprogram.innerText,e.target.parentElement.children[0].innerText); 
+            }
+        })
+    }
+}
+

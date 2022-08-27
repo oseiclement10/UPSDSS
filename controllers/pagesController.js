@@ -96,7 +96,11 @@ const getProgramSuccessPage = (req,res,next)=>{
 }
 
 const getInterestPage = (req,res,next)=>{
-    res.render("interestpage");
+    let shsprogram=req?.user.shsprogram;
+    
+    res.render("interestpage",{
+        shsprogram:shsprogram,
+    });
 }
 module.exports = {
     start,

@@ -40,12 +40,20 @@ body .intro_message{
     padding:2rem;
     
 }
-body .intro_message p{
+body .intro_message p:not(#link){
     text-align: center;
     font-size: 1.8rem;
     text-decoration: underline;
     color:rgb(11, 26, 41);
     
+}
+
+body .intro_message #link{
+    text-align: center;
+    font-size:1.1rem;
+}
+body .intro_message #link a{
+    font-weight: bold;
 }
 body .interest_content .content{
     height:160px;
@@ -147,10 +155,14 @@ body .interest_form .sub input[type="submit"]{
     color: white;
     background-color:rgb(20, 96, 91); 
 }
+
 body .interest_form .sub input[type="submit"]:hover{
     opacity: 0.8;
 }
 
 body #red{
     color:red;
+}
+body #shsprogram{
+    display:none;
 }

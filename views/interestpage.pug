@@ -4,11 +4,16 @@ block content
   .intro 
    .intro_text
     h1 Which Of The Following Fields Do You Find Interesting (Career-Wise)
-    p Please note that based on the program you offered in shs some of the fields will not be recommended 
+    p Please note that based on the program you offered in shs some of the fields will not be recommended
+    if shsprogram 
+    p#shsprogram=shsprogram
    .intro_image
     img(src="./images/undraw_interests.png" alt="interest introduction image") 
   .intro_message 
    p Read Through The Following Fields
+   p#link Click 
+    a(href="#interest_form") Here
+    span To Select Your Interest ...
   .interest_content 
   
    .content_holder
@@ -165,19 +170,19 @@ block content
        li BSc. Business Administration
        li LLB (4 years for WASSE/SSSCE/GBCE and Equivalent Holders)
        li LLB Part-Time, (4years for Degree Holders only)
-       li BA Economics (Parallel)
-       li BSc. Business Administration (Parallel)
-       li BA Geography and Rural Development (Parallel)
-       li BA Sociology (Parallel)
-       li BA Social Work (Parallel)
-       li BA History (Parallel)
-       li BA Political Studies (Parallel)
-       li BA French (Parallel)
-       li BA Culture and Tourism (Parallel)
-       li BA English (Parallel)
-       li BA Religious Studies (Parallel)
+       li BA Economics 
+       li BSc. Business Administration 
+       li BA Geography and Rural Development 
+       li BA Sociology 
+       li BA Social Work 
+       li BA History 
+       li BA Political Studies 
+       li BA French 
+       li BA Culture and Tourism 
+       li BA English 
+       li BA Religious Studies 
       .notes 
-       P Recommended For All Students  
+       P Recommended For Students Who Offered General Arts, Business, General Science , Visual Arts, Technical , Home Economics , Agriculture .  
    .content_holder
     .content  
      .img
@@ -205,26 +210,27 @@ block content
     h1 Select The Fields That Interest You. ( 
      span(id="red") Maximum 3
      span )
-    form(action="")
+    form(action="" id="interest_form" name="interest_form" )
      .form_data
       .opt 
        label(for="has") Health and Allied Sciences
-       input(type="checkbox", name="healthandalliedsciences" id="has")
+       input(type="checkbox", name="healthandalliedsciences" id="has" class="int")
       .opt
        label(for="eng") Engineering
-       input(type="checkbox", name="engineering" id="eng")
+       input(type="checkbox", name="engineering" id="eng" class="int")
       .opt
        label(for="arts&built") Art and Built Environment
-       input(type="checkbox", name="artandbuilt" id="arts&built")
+       input(type="checkbox", name="artandbuilt" id="arts&built" class="int")
       .opt
        label(for="sci") Science
-       input(type="checkbox" name="science" id="sci")
+       input(type="checkbox" name="science" id="sci" class="int")
       .opt
        label(for="humanities") Humanities and Social Science
-       input(type="checkbox", name="humanitiesandsocialscience" id="humanities")
+       input(type="checkbox", name="humanitiesandsocialscience" id="humanities" class="int")
       .opt
        label(for="agric&natu") Agriculture and Natural Resources
-       input(type="checkbox" name="agricandnaturalresources" id="agric&natu")
+       input(type="checkbox" name="agricandnaturalresources" id="agric&natu" class="int")
      .sub 
-      input(type="submit", value="Next")     
+      input(type="submit", value="Next") 
+  script(type="text/javascript" src="./js/main.js")         
      
