@@ -28,7 +28,7 @@ const signUpUser = (req,res,next) =>{
                 console.log("error occured at salt querying" + err);
                 res.redirect('/start?e=error');
               }else{
-                console.log("user signed up successfully");
+               
                 logInUser(req,res,next);
               }
             })
@@ -98,7 +98,19 @@ const insertUserScores = (req,res,next)=>{
   }
 
 const updateUserInterestFields = (req,res,next)=>{
-  res.redirect("/user_interest_adv");
+  let id=req.user.id;
+  let username=req.user.username;
+  let user = new User(id,username);
+  user.loadInterests(Object.keys(req.body));
+  user.db.query(user.queries.updateInterests,[user.interests,id],(err,rows)=>{
+      if(err){
+        console.log(err);
+        res.redirect('/welcome?e=error');
+      }else{
+        res.redirect('/user_interest_adv');
+      }
+  })
+ 
 }
 
 const getCurrentUserGrades = (req,res,next) =>{

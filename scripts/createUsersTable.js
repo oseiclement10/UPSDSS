@@ -10,7 +10,7 @@ const dB = mysql.createConnection({
 });
 
 const query = `CREATE TABLE USERS (
-    id int(100) not null,
+    id int(100) not null Auto Increment,
     username varchar(100),
     email varchar(100),
     password varchar(1000),

@@ -2,22 +2,32 @@ extends layout.pug
 block content 
  section#adv_interest 
   .intro_container 
+   .img_cont
+    img(src="./images/graduation_2.jpg", alt="interest second image")
+   .txt_cont
+    .txt 
+     h1 You are Almost Done!
+  .p_details
+   h2 Personal Details
    .details
-    p Name : 
-     span=username
-    p Shs Program :
-     span=shsprogram 
-    p Aggregate calculated :
-     span=cutoff   
-   .img
-    img(src="./images/success.png", alt="interest second image")
-  
-  .info
-   h2 Note :
-   p Universities may use your aggregate to match up against cutoff point required by any program you apply for.
-   P Based on the number of people applying for a particular program the cutoff point is either increased or reduced 
-    span (+ or -) 1.
+     p 
+      b Name :  
+      span=data.name
+     p 
+      b Shs Program : 
+      span=data.shsprogram 
+     p 
+      b Aggregate calculated : 
+      span=data.aggregate
+     p 
+      b Fields Of Interest 
+      ul
+       each interest in data.interests 
+        li=interest      
+   .info
+    h2#note Note
+    p Universities may use your aggregate to match up against cutoff point required by any program you apply for. Based on the number of people applying for a particular program the cutoff point is either increased or reduced 
+     span  by 1(+ or -).
   
   .available 
-   h2 The Programs available based on the aggregate you scored in WASSCE is  
    

@@ -104,14 +104,35 @@ const getInterestPage = (req,res,next)=>{
 }
 
 const getAdvInterestPage = (req,res,next)=>{
+    let interests = [];
+    let interest_fileds={
+        healthandalliedsciences:"Health And Allied Sciences",
+        engineering:"Engineering",
+        artandbuilt:"Art and Built Environment",
+        science:"Science",
+        humanitiesandsocialscience:"Humanities and Social Sciences",
+        agricandnaturalresources:"Agriculture and Natural Resources"
+    };
+
     let user = {};
-    user.username = req.body.username;
-    user.shsprogram = req.body.shsprogram;
-    user.aggregate = req.body.aggregate;
+    user.name = req.user.username;
+    user.shsprogram = req.user.shsprogram;
+    user.aggregate = (req.user.aggregate.length==2)?req.user.aggregate:`0${req.user.aggregate}`;
+    user.strengths = req.user.strengths;
+
+    let keys = req.user.interests.split(",");
+
+    keys.forEach(element => {
+        interests.push(interest_fileds[element])
+    });
+
+    user.interests = interests;
+
     res.render("interest_adv",{
         data:user
     });
 }
+
 module.exports = {
     start,
     getLoginPage,

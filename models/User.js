@@ -7,6 +7,7 @@ class User {
     strengths="";
     weakness="";
     aggregate = null;
+    interests = "";
 
     constructor(id,name){
         this.name = name;
@@ -19,11 +20,15 @@ class User {
             updateStrength: `update users set strengths = ? where id=?`,
             updateWeakness:`update users set weakness=? where id = ?`,
             updateAggregate:`upadte users set aggregate=? where id=?`,
+            updateInterests:`update users set interests=? where id =?`,
             updateAll:`update users set examsscores=?,strengths=?,weakness=?,aggregate=? where id=?`
         }
             
     }
-    
+    loadInterests(interests=[]){
+        let user_interests = interests.toString();
+        this.interests = user_interests;
+    }
     loadCourse(coursename){
         this.coursename = coursename;
     }
@@ -74,7 +79,8 @@ class User {
         let coreSubjects = sort(this.examsscores_array.slice(0,4));
         let electiveSubjects = sort(this.examsscores_array.slice(4,this.examsscores_array.length));
         let cutoff = sumUp(coreSubjects,3) + sumUp(electiveSubjects,3);
-        this.aggregate = (`${cutoff}`.length ==2)? `${cutoff}`: `0${cutoff}` ;
+        this.aggregate = (`${cutoff}`.length ==2)? `${cutoff}`: `0${cutoff}`;
+        console.log(this.aggregate);
     }
 
     loadInterestandWeakness(){

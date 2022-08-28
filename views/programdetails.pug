@@ -40,10 +40,10 @@ block content
     .elective_form 
      form(name = 'elective_subjects' class="elective_form" action=""  id="electiveform")  
       .elective_subs
-       each subject in electives
+       each subject,index in electives
         .opt_cont 
-         label=subject
-         input(type="checkbox" class="opt2" name="elective" value=subject )
+         label(for=index)=subject
+         input(type="checkbox" class="opt2" name="elective" value=subject id=index)
       .submit   
        input(type="submit" value="next >>")
   .scores_container#scores_cont

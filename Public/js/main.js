@@ -89,7 +89,7 @@ function inform(info){
 function decideInterest(shsprogram,interest){
 
     switch(shsprogram){
-        case "General Sciene":
+        case "General Science":
              return true;
         case "Business":
              if(interest=="Health and Allied Sciences"){
@@ -190,7 +190,10 @@ function decideInterest(shsprogram,interest){
             return true;
          }else if(interest=="Agriculture and Natural Resources"){
             return true;
-         }          
+         }
+         
+         default:
+            return false;
 
     }
 

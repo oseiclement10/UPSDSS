@@ -159,10 +159,99 @@ body .interest_form .sub input[type="submit"]{
 body .interest_form .sub input[type="submit"]:hover{
     opacity: 0.8;
 }
-
+body .interest_form .notes{
+    padding:10px;
+}
+body .interest_form .notes p{
+    text-align: center;
+    font-size:17px;
+}
+body .interest_form .notes p span{
+    font-weight: bold;
+}
 body #red{
     color:red;
 }
 body #shsprogram{
     display:none;
+}
+body section#adv_interest{
+    padding-top:2rem;
+    
+}
+
+body #adv_interest .intro_container{
+    width:80%;
+    margin:auto;
+    height:60vh;
+    display: flex;
+}
+
+body #adv_interest .intro_container .img_cont{
+    flex:2;
+    height:inherit;
+}
+
+body #adv_interest .intro_container .img_cont img{
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    height: inherit;
+    box-shadow: -4px 2px 4px 0px rgba(0,0,0,0.12);
+}
+
+body #adv_interest .intro_container .txt_cont{
+    flex:1;
+    display: flex;
+    align-items: center; 
+    position: relative;
+    left:-6rem;
+    z-index: 1;
+}
+body #adv_interest .intro_container .txt_cont .txt{
+    padding:1rem;
+    background: rgb(40, 151, 144);
+    border-radius: 4px;
+    box-shadow: -4px 2px 4px 0px rgba(0,0,0,0.12);
+}
+body #adv_interest .intro_container .txt_cont h1{
+    font-size: 2.5rem;
+    color:whitesmoke;
+    text-align: center;
+}
+body #adv_interest .p_details{
+    padding:2rem;
+}
+
+body #adv_interest .p_details h2{
+    font-size: 2rem;
+    border-left: 8px solid rgb(40, 151, 144);
+    padding:12px;
+    background-color: rgb(207, 203, 203);
+}
+body .p_details .details,body .info{
+    padding:5px;
+    padding-left:15px;
+}
+
+body .p_details .details p{
+    font-size: 20px;
+}
+#note{
+    width:fit-content;
+}
+body .p_details .info p{
+    font-size: 1.2rem;
+    word-spacing: 1px;
+}
+
+body .p_details ul {
+    list-style: none;
+}
+body .p_details ul li{
+    padding:6px;
+    background-color: rgb(224, 223, 223);
+    width: 30%;
+    margin-bottom: 4px;
+    border-left:5px solid rgb(20, 96, 91);
 }
