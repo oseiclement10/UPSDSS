@@ -3,8 +3,8 @@
 # dependencies
 node_modules
 node_modules/
+scripts/connectionProperties.js
 
-scripts/connectionValues.js
 /.pnp
 .pnp.js
 
