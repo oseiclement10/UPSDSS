@@ -80,7 +80,7 @@ class User {
         let electiveSubjects = sort(this.examsscores_array.slice(4,this.examsscores_array.length));
         let cutoff = sumUp(coreSubjects,3) + sumUp(electiveSubjects,3);
         this.aggregate = (`${cutoff}`.length ==2)? `${cutoff}`: `0${cutoff}`;
-        console.log(this.aggregate);
+         
     }
 
     loadInterestandWeakness(){

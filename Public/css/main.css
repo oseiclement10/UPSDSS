@@ -468,9 +468,7 @@ body .scores_container .submitcont{
     justify-content: flex-end;
 }
 
-body .scores_container .invalid{
-    border:1px solid red;
-}
+
 body .scores_container input[type="submit"]{
 
     color:white;

@@ -1,8 +1,8 @@
-const data = {
+const info = {
     user:"root",
     host:"localhost",
     password:"mysqlpass80",
     database:"upsdss"
 }
 
-module.exports = data;
+module.exports = info;

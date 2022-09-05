@@ -55,6 +55,7 @@ function createForm(data){
  input.required=true;
  input.type="text";
  input.maxLength = 2;
+ input.pattern="^[a-zA-Z]{1}[0-9]$";
  input.name = data;
  input.classList.add('escores');
  let label = document.createElement('label');
