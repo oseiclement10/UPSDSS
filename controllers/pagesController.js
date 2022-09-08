@@ -1,4 +1,6 @@
-const programs = require('../helpers/programs');
+const GetInterestId = require('../helpers/GetInterestId');
+const programs_array = require('../helpers/programs');
+const GetPrograms = require('../models/GetPrograms');
 
 function clean(string){
     let words = string.split(",");
@@ -62,7 +64,7 @@ const getLoginPage = (req,res,next)=>{
 
 const getProgramDetailPage = (req,res,next) =>{
     let program = req.query.v||null;
-    let program_choice = programs[`${program}`] || null;
+    let program_choice = programs_array[`${program}`] || null;
     let user = {
         username:req.user.username,
         shsprogram:req.user.shsprogram
@@ -104,7 +106,10 @@ const getInterestPage = (req,res,next)=>{
 }
 
 const getAdvInterestPage = (req,res,next)=>{
+
     let interests = [];
+    let user = {};
+    
     let interest_fileds={
         healthandalliedsciences:"Health And Allied Sciences",
         engineering:"Engineering",
@@ -113,11 +118,11 @@ const getAdvInterestPage = (req,res,next)=>{
         humanitiesandsocialscience:"Humanities and Social Sciences",
         agricandnaturalresources:"Agriculture and Natural Resources"
     };
-
-    let user = {};
+       
     user.name = req.user.username;
     user.shsprogram = req.user.shsprogram;
-    user.aggregate = (req.user.aggregate.length==2)?req.user.aggregate:`0${req.user.aggregate}`;
+
+    user.aggregate = (`${req.user.aggregate}`.length==2) ? req.user.aggregate : `0${req.user.aggregate}`;
     user.strengths = req.user.strengths;
 
     let keys = req.user.interests.split(",");
@@ -127,10 +132,68 @@ const getAdvInterestPage = (req,res,next)=>{
     });
 
     user.interests = interests;
+    
 
-    res.render("interest_adv",{
-        data:user
-    });
+    async function getProgramsOnInterests (interest_array,user,pageRenderer){
+
+            let ProgramsFinder = new GetPrograms();
+            let len = interest_array.length;
+
+           
+            interest_array.forEach( (elemm,index)=>{
+                
+                let interestId = new GetInterestId(elemm);
+                  ProgramsFinder.db.query(ProgramsFinder.queries.getOnInterestId,[interestId.interest_id],(err,rows)=>{
+                    if(err){
+                        pageRenderer(err,null,null);
+                    }else{
+
+                        ProgramsFinder.collection.title = elemm;
+                        ProgramsFinder.collection.content = rows.map(elem=>{
+                             let prog = {};
+                             prog.program_name = elem.program_name;
+                             prog.cutoff=elem.cutoff;
+                             return prog;
+                        });
+                       
+                        let capture = Object.assign({},ProgramsFinder.collection);
+                        
+                        ProgramsFinder.loadContainer(capture);
+                        
+                        if(index == (len-1)){
+                            let data=ProgramsFinder.getContainer();
+                            pageRenderer(null,user,data);
+                        }
+
+                    }
+
+                })
+
+            })
+
+
+
+
+    }
+     
+    getProgramsOnInterests(user.interests,user,render);
+
+    function render(err,user,data){
+        if(err){
+            console.log(err);
+        }else{
+            console.log(data);
+        res.render("interest_adv",{
+            data:user,
+            programs:data,
+        });
+    }
+
+    }
+    
+
+
+
 }
 
 module.exports = {

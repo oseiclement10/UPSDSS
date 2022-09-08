@@ -3,7 +3,9 @@
 # dependencies
 node_modules
 node_modules/
+
 scripts/connectionProperties.js
+mov/rip.js
 
 /.pnp
 .pnp.js

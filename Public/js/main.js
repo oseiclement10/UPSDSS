@@ -182,8 +182,7 @@ function decideInterest(shsprogram,interest){
             inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
             return false;
          }else if(interest=="Art and Built Environment"){
-            inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
-            return false;
+            return true;
          }else if(interest=="Science"){
             inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
             return false;

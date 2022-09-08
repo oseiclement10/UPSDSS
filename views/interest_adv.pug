@@ -1,15 +1,10 @@
 extends layout.pug 
 block content 
  section#adv_interest 
-  .intro_container 
-   .img_cont
-    img(src="./images/graduation_2.jpg", alt="interest second image")
-   .txt_cont
-    .txt 
-     h1 You are Almost Done!
-  .p_details
-   h2 Student's Details
-   .details
+  .intro_container  
+   .p_details
+    h1 Student's Details
+    .details
      p 
       b Name :  
       span=data.name
@@ -24,8 +19,20 @@ block content
       ul
        each interest in data.interests 
         li=interest      
-   hr
-   .info
+   .intro_img 
+    img(src="./images/undraw_interests.png" alt="Students illust..")
+  hr
+  .phase1
+   h1 The Following Programs Are Available Based On The Program You Offered in SHS and Your Interests
+  //-  .phase1_contents 
+  //-   if programs 
+  //-    each data in programs 
+  //-     h1=data.interest 
+  //-     each program in data.programs 
+  //-      p=program.program_name 
+  //-       span=program.cutoff
+    
+  .info
     p 
      b Universities 
      span may use your aggregate to match up against cutoff point required by any program you apply for. Based on the number of people applying for a particular program the cutoff point is either increased or reduced 
