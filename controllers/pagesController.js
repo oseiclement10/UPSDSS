@@ -105,7 +105,7 @@ const getInterestPage = (req,res,next)=>{
     });
 }
 
-const getAdvInterestPage = (req,res,next)=>{
+const getAdvInterestPage = async (req,res,next)=>{
 
     let interests = [];
     let user = {};
@@ -126,51 +126,59 @@ const getAdvInterestPage = (req,res,next)=>{
     user.strengths = req.user.strengths;
 
     let keys = req.user.interests.split(",");
-
+    
     keys.forEach(element => {
         interests.push(interest_fileds[element])
     });
 
     user.interests = interests;
     
+    function deepCopyArrays(source,target){
+        let len = source.length;
+        for(let i =0; i<len ; i++){
+            target[i] = Object.assign({},source[i]);
+        }
+        return target;
+    }
 
-    async function getProgramsOnInterests (interest_array,user,pageRenderer){
-
+     function getProgramsOnInterests (interest_array,user,pageRenderer){
+            let aggregate = user.aggregate;
             let ProgramsFinder = new GetPrograms();
             let len = interest_array.length;
-
+            let data = [];
            
-            interest_array.forEach( (elemm,index)=>{
-                
-                let interestId = new GetInterestId(elemm);
-                  ProgramsFinder.db.query(ProgramsFinder.queries.getOnInterestId,[interestId.interest_id],(err,rows)=>{
+            for(let i=0; i<len; i++){
+                let interest = interest_array[i];
+                let InterestId = new GetInterestId(interest).interest_id;
+                ProgramsFinder.db.query(ProgramsFinder.queries.getOnInterestId,[InterestId],(err,rows)=>{
                     if(err){
                         pageRenderer(err,null,null);
                     }else{
-
-                        ProgramsFinder.collection.title = elemm;
+                        ProgramsFinder.collection.title=interest;
+                        
                         ProgramsFinder.collection.content = rows.map(elem=>{
-                             let prog = {};
-                             prog.program_name = elem.program_name;
-                             prog.cutoff=elem.cutoff;
-                             return prog;
+                            let prog = {};
+                            prog.program_name = elem.program_name;
+                            prog.cutoff = elem.cutoff;
+                            return prog;
                         });
-                       
+
                         let capture = Object.assign({},ProgramsFinder.collection);
+                        data.push(capture);
                         
-                        ProgramsFinder.loadContainer(capture);
-                        
-                        if(index == (len-1)){
-                            let data=ProgramsFinder.getContainer();
-                            pageRenderer(null,user,data);
+                        if(i==(len-1)){
+                            let detailedData = deepCopyArrays(data,[]);
+                            detailedData = detailedData.map(ele=>{
+                                ele.content = ele.content.filter(el=>(el.cutoff)>=aggregate)
+                                return ele;
+                            });
+
+                            pageRenderer(null,user,data,detailedData);
                         }
-
                     }
-
                 })
-
-            })
-
+            }
+           
 
 
 
@@ -178,14 +186,15 @@ const getAdvInterestPage = (req,res,next)=>{
      
     getProgramsOnInterests(user.interests,user,render);
 
-    function render(err,user,data){
+    function render(err,user,data,detailedData){
         if(err){
             console.log(err);
         }else{
-            console.log(data);
+            console.log(detailedData);
         res.render("interest_adv",{
             data:user,
             programs:data,
+            detail_programs:detailedData
         });
     }
 

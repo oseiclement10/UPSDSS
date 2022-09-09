@@ -23,20 +23,36 @@ block content
     img(src="./images/undraw_interests.png" alt="Students illust..")
   hr
   .phase1
-   h1 The Following Programs Are Available Based On The Program You Offered in SHS and Your Interests
-  //-  .phase1_contents 
-  //-   if programs 
-  //-    each data in programs 
-  //-     h1=data.interest 
-  //-     each program in data.programs 
-  //-      p=program.program_name 
-  //-       span=program.cutoff
-    
+   h1#intro The Following Programs Are Available Based On The Program You Offered in SHS and Your Interests
+   .phase1_contents 
+    if programs 
+     each data in programs 
+      h1=data.title
+      .programs_holder 
+       each program in data.content
+        .prog_cont 
+         p=program.program_name 
+         span &nbsp; &nbsp;
+         p=program.cutoff
+  hr  
   .info
     p 
-     b Universities 
+     b#uni Universities 
      span may use your aggregate to match up against cutoff point required by any program you apply for. Based on the number of people applying for a particular program the cutoff point is either increased or reduced 
-      span  by 1(+ or -).
+      span  by 
+      b 1(+ or -).
+
+    h2 The Following Programs Are Eligible For You Based On The Aggregate You Had In Wassce 
+    .phase1_contents 
+     if detail_programs 
+      each data in detail_programs 
+       h1=data.title
+       .programs_holder 
+        each program in data.content
+         .prog_cont 
+          p=program.program_name 
+          span &nbsp; &nbsp;
+          p=program.cutoff   
   
   .available 
    

@@ -111,5 +111,7 @@ class User {
 
 }
 
+let jackson = new User("jackson");
+
 
 module.exports = User;

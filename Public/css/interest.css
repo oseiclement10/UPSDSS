@@ -237,8 +237,38 @@ body .intro_container .intro_img img{
 body #adv_interest .phase1{
     padding:2rem;
 }
-body #adv_interest .phase1 h1{
+body #adv_interest .phase1 h1#intro{
+    padding-bottom: 4rem;
     text-align: center;
+    font-size: 2rem;
+    text-decoration: underline;
+}
+body #adv_interest .phase1 h1:not(#intro){
+    background-color: rgb(213, 207, 207);
+    padding:10px;
+    border-left:8px solid rgb(20, 96, 91);
+}
+body #adv_interest .phase1_contents .programs_holder{
+    display: grid;
+    grid-template-columns: repeat(3,1fr); 
     
+
+}
+body #adv_interest .phase1_contents .programs_holder .prog_cont{
+    display: flex;
+    padding:5px;
+    align-items: center;
+}
+
+body #adv_interest .info{
+    padding-top:2rem;
+}
+body #adv_interest .info p b#uni{
+    font-size: 1.5rem;
+}
+
+body #adv_interest .info h2{
+    padding-top:4rem;
+    text-align: center;
     text-decoration: underline;
 }

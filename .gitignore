@@ -10,6 +10,8 @@ mov/rip.js
 /.pnp
 .pnp.js
 
+notes.txt
+
 # testing
 /coverage
 
@@ -23,6 +25,7 @@ mov/rip.js
 .env.test.local
 .env.production.local
 .env 
+.notes
 
 
 npm-debug.log*
