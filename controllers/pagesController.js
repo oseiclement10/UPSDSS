@@ -160,6 +160,7 @@ const getAdvInterestPage = async (req,res,next)=>{
                             let prog = {};
                             prog.program_name = elem.program_name;
                             prog.cutoff = elem.cutoff;
+                            prog.id=elem.id;
                             return prog;
                         });
 
@@ -190,7 +191,6 @@ const getAdvInterestPage = async (req,res,next)=>{
         if(err){
             console.log(err);
         }else{
-            console.log(detailedData);
         res.render("interest_adv",{
             data:user,
             programs:data,
@@ -205,6 +205,23 @@ const getAdvInterestPage = async (req,res,next)=>{
 
 }
 
+const getProgramDetails = (req,res,next)=>{
+    let id = req.query.id || null;
+    let Getter = new GetPrograms();
+    if(id){
+        Getter.db.query(Getter.queries.getOnId,id,(err,rows)=>{
+            if(err){
+
+            }else{
+                let data = rows[0];
+                console.log(data);
+                res.render('program_info',{
+                    program:data
+                })
+            }
+        })
+    }
+}
 module.exports = {
     start,
     getLoginPage,
@@ -214,5 +231,6 @@ module.exports = {
     getProgramDetailPage,
     getProgramSuccessPage,
     getInterestPage,
-    getAdvInterestPage
+    getAdvInterestPage,
+    getProgramDetails
 }

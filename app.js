@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const app = express();
 const PATH = require('path');
-const mainRoute = require('./routes/mainRoutes');
+const pagesRoute = require('./routes/pagesRoutes');
 const userRoute = require('./routes/userRoutes');
 const PORT = process.env.PORT || 5000;
 const connection = require('./configs/database');
@@ -33,7 +33,7 @@ app.use(express.urlencoded({extended:false}));
 
 // Routes
 app.use(express.static(PATH.join(__dirname,"public")));
-app.use('/',mainRoute);
+app.use('/',pagesRoute);
 app.use('/users',userRoute);
 
 //database connection

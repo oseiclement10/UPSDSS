@@ -1,0 +1,16 @@
+extends layout.pug 
+block content 
+ section#program_info 
+  .caption 
+   h1 Program Details
+  .program 
+   .title 
+    p=program.program_name
+   .cutoff 
+    p Aggregate Required 
+    p=program.cutoff 
+   .description 
+    p=program.description 
+   .career_opps 
+    p=program.jobs 
+   

@@ -8,7 +8,8 @@ class GetPrograms {
         this.db=db;
         
         this.queries = {
-            getOnInterestId:"Select program_name,cutoff from knust_programs where college_id =?"
+            getOnInterestId:"Select * from knust_programs where college_id =?",
+            getOnId: "Select * from knust_programs where id=?"
         }
 
         this.collection.title="";
@@ -16,6 +17,7 @@ class GetPrograms {
         
     }
 
+    
     loadContainer(data){      
        this.programs_container.push(data)
     }
