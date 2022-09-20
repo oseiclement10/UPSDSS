@@ -211,10 +211,10 @@ const getProgramDetails = (req,res,next)=>{
     if(id){
         Getter.db.query(Getter.queries.getOnId,id,(err,rows)=>{
             if(err){
-
+                res.redirect('back')
             }else{
                 let data = rows[0];
-                console.log(data);
+                data.jobs = (data.jobs)? data.jobs.split(","):[];
                 res.render('program_info',{
                     program:data
                 })
@@ -222,6 +222,7 @@ const getProgramDetails = (req,res,next)=>{
         })
     }
 }
+
 module.exports = {
     start,
     getLoginPage,

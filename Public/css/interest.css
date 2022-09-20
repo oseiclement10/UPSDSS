@@ -307,3 +307,39 @@ body #adv_interest .phase2_contents .programs_holder .prog_cont{
     display: block;
     text-decoration: none;
 }
+
+body section#program_info{
+    padding:2.5rem;   
+    word-spacing: 1px;
+    letter-spacing: 0.5px;
+}
+
+body  .back{
+    width:80%;
+    margin:auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+body  .back button{
+    padding:10px;
+    display: inline-block;
+    text-decoration: none;
+    background-color:rgb(7, 107, 100);
+    color:white;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.1rem;
+    
+}
+body  .back button:hover{
+    opacity: 0.8;
+}
+
+body section#program_info ul li{
+    padding:5px;
+    border-left:6px solid rgb(20, 96, 91);
+    margin-bottom: 3px;
+    list-style-type: none;
+}

@@ -1,16 +1,22 @@
 extends layout.pug 
 block content 
- section#program_info 
+ section#program_info
+  .back 
+   button(onclick="history.back()" ) << go back
   .caption 
    h1 Program Details
   .program 
    .title 
     p=program.program_name
    .cutoff 
-    p Aggregate Required 
-    p=program.cutoff 
+    p Minimum Aggregate Required :  
+     span=program.cutoff 
    .description 
     p=program.description 
    .career_opps 
-    p=program.jobs 
+     
+    h2 Career Opportunities in this field includes
+    ul 
+     each job in program.jobs 
+      li=job
    

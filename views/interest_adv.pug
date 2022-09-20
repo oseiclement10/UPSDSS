@@ -1,6 +1,8 @@
 extends layout.pug 
 block content 
- section#adv_interest 
+ section#adv_interest
+  .back 
+   button(onclick="history.back()" ) << go back 
   .intro_container  
    .p_details
     h1 Student's Details
@@ -42,7 +44,7 @@ block content
       span  by 
       b 1(+ or -).
 
-    h1.phase2 The Following Programs Are Eligible For You Based On The Aggregate You Had In Wassce 
+    h1.phase2 The Programs Below Are Eligible For You Based On The Aggregate You Had In Wassce 
     .sidenotes 
       p Numbers associated with each program is the cutoff point required for that particular program.
       p Click on a program to read more about it.
@@ -51,6 +53,8 @@ block content
       each data in detail_programs 
        h1=data.title
        .programs_holder 
+        if data.content.length==0
+         p Sorry No Programs Available For You in this Section , Because your aggregate did not meet the cutoff requirement for all programs in this field.
         each program in data.content
          a.prog_cont(href=`/prog_details?id=${program.id}`) 
           p=program.program_name
