@@ -1,0 +1,47 @@
+extends layout.pug 
+block content 
+ section#adv_interest
+  .back 
+   button(onclick="history.back()" ) << go back 
+  .intro_container  
+   .p_details
+    h1 Student's Details
+    .details
+     p 
+      b Name :  
+      span=data.name
+     p 
+      b Shs Program : 
+      span=data.shsprogram 
+     p 
+      b Aggregate calculated : 
+      span=data.aggregate
+     p 
+      b Fields Of Interest 
+      ul
+       each interest in data.interests 
+        li=interest      
+   .intro_img 
+    img(src="./images/undraw_interests.png" alt="Students illust..")
+  hr
+  .phase1
+   h1#intro The Following Programs Are Available Based On The Program You Offered in SHS and Your Interests
+   .phase1_contents 
+    if programs 
+     each data in programs 
+      h1=data.title
+      .programs_holder 
+       each program in data.content
+        .prog_cont 
+         p=program.program_name 
+         span &nbsp; &nbsp;
+         p=program.cutoff
+  hr  
+  .info
+    p.notes 
+     b#uni Universities 
+     span may use your aggregate to match up against cutoff point required by any program you apply for. 
+     
+    p 
+     b Click next to find out programs You are elligible for based on the aggregate you had in Wassce 
+     a(href="/programs_on_cutoff") Next   

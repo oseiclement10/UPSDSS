@@ -94,13 +94,13 @@ function decideInterest(shsprogram,interest){
              return true;
         case "Business":
              if(interest=="Health and Allied Sciences"){
-                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                inform(`Programs in ${interest} requires you to offer certain electives. Those electives are not offered by  ${shsprogram} students, hence you cannot select this field`);
                 return false;
              }else if(interest=="Engineering"){
-                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                inform(`Programs in ${interest} requires you to offer certain electives. Those electives are not offered by  ${shsprogram} students, hence you cannot select this field`);
                 return false;
              }else if(interest=="Art and Built Environment"){
-                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                inform(`Programs in ${interest} requires you to offer certain electives. Those electives are not offered by  ${shsprogram} students, hence you cannot select this field`);
                 return false;
              }else if(interest=="Science"){
                 return true;
@@ -113,7 +113,7 @@ function decideInterest(shsprogram,interest){
              if(interest=="Health and Allied Sciences"){
                return true;
              }else if(interest=="Engineering"){
-                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                inform(`Programs in ${interest} requires you to offer certain electives. Those electives are not offered by  ${shsprogram} students, hence you cannot select this field`);
                 return false;
              }else if(interest=="Art and Built Environment"){
                 return true;
@@ -128,31 +128,31 @@ function decideInterest(shsprogram,interest){
             if(interest=="Health and Allied Sciences"){
                 return true;
              }else if(interest=="Engineering"){
-                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                inform(`Programs in ${interest} requires you to offer certain electives. Those electives are not offered by  ${shsprogram} students, hence you cannot select this field`);
                 return false;
              }else if(interest=="Art and Built Environment"){
-                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                inform(`Programs in ${interest} requires you to offer certain electives. Those electives are not offered by  ${shsprogram} students, hence you cannot select this field`);
                 return false;
              }else if(interest=="Science"){
                 return true;
              }else if(interest=="Humanities and Social Science"){
                 return true;
              }else if(interest=="Agriculture and Natural Resources"){
-                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                inform(`Programs in ${interest} requires you to offer certain electives. Those electives are not offered by  ${shsprogram} students, hence you cannot select this field`);
                 return false;
              }          
         case "Agriculture":
             if(interest=="Health and Allied Sciences"){
-                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                inform(`Programs in ${interest} requires you to offer certain electives. Those electives are not offered by  ${shsprogram} students, hence you cannot select this field`);
                 return false;
              }else if(interest=="Engineering"){
-                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                inform(`Programs in ${interest} requires you to offer certain electives. Those electives are not offered by  ${shsprogram} students, hence you cannot select this field`);
                 return false;
              }else if(interest=="Art and Built Environment"){
-                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                inform(`Programs in ${interest} requires you to offer certain electives. Those electives are not offered by  ${shsprogram} students, hence you cannot select this field`);
                 return false;
              }else if(interest=="Science"){
-                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                inform(`Programs in ${interest} requires you to offer certain electives. Those electives are not offered by  ${shsprogram} students, hence you cannot select this field`);
                 return false;
              }else if(interest=="Humanities and Social Science"){
                 return true;
@@ -161,7 +161,7 @@ function decideInterest(shsprogram,interest){
              }          
         case "Technical":
             if(interest=="Health and Allied Sciences"){
-                inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+                inform(`Programs in ${interest} requires you to offer certain electives. Those electives are not offered by  ${shsprogram} students, hence you cannot select this field`);
                 return false;
              }else if(interest=="Engineering"){
                 return true;
@@ -176,15 +176,15 @@ function decideInterest(shsprogram,interest){
              }          
         case "Visual Arts":   
         if(interest=="Health and Allied Sciences"){
-            inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+            inform(`Programs in ${interest} requires you to offer certain electives. Those electives are not offered by  ${shsprogram} students, hence you cannot select this field`);
             return false;
          }else if(interest=="Engineering"){
-            inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+            inform(`Programs in ${interest} requires you to offer certain electives. Those electives are not offered by  ${shsprogram} students, hence you cannot select this field`);
             return false;
          }else if(interest=="Art and Built Environment"){
             return true;
          }else if(interest=="Science"){
-            inform(`Programs in ${interest} requires credit passes in electives that are not offered by students who offered ${shsprogram} in senior high school, hence you cannot select this field`);
+            inform(`Programs in ${interest} requires you to offer certain electives. Those electives are not offered by  ${shsprogram} students, hence you cannot select this field`);
             return false;
          }else if(interest=="Humanities and Social Science"){
             return true;

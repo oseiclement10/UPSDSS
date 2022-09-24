@@ -43,6 +43,16 @@ body .intro_message{
     padding:2rem;
     
 }
+
+body .intro_message .fields{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:1rem;
+}
+body .intro_message .fields .flinks a{
+    padding:10px;
+}
 body .intro_message p:not(#link){
     text-align: center;
     font-size: 1.8rem;
@@ -262,43 +272,42 @@ body #adv_interest .phase1_contents .programs_holder .prog_cont{
 
 body #adv_interest .info{
     padding:3rem 1rem;
-}
-
-body #adv_interest .info p.notes{
     letter-spacing: 1px;
     word-spacing: 1px;
     font-size: 20px;
-    padding-bottom: 3rem;
 }
+
+
 
 body #adv_interest .info p.notes b{
     font-size: 1.5rem;
 }
 
-body #adv_interest h1.phase2{
+
+body  h1.phase2{
     text-align: center;
     text-decoration: underline;
     font-size:1.7rem;
     margin-bottom: 2rem;
 }
 
-body #adv_interest .sidenotes{
+body  .sidenotes{
     text-align: center;
     font-size: 20px;
     color:rgb(40, 35, 35);
     margin-bottom: 3rem;
 }
-body #adv_interest .phase2_contents h1{
+body  .phase2_contents h1{
     background-color: rgb(213, 207, 207);
     padding:10px;
     border-left:8px solid rgb(20, 96, 91);
     margin-bottom: 2rem;
 }
-body #adv_interest .phase2_contents .programs_holder{
+body  .phase2_contents .programs_holder{
     padding-left: 2rem;
 }
 
-body #adv_interest .phase2_contents .programs_holder .prog_cont{
+body  .phase2_contents .programs_holder .prog_cont{
     padding:3px 8px;
     margin-bottom:8px;
     border-left:6px solid rgb(1, 21, 48);
@@ -314,6 +323,18 @@ body section#program_info{
     letter-spacing: 0.5px;
 }
 
+body .info a{
+    text-decoration: none;
+    padding:6px;
+    border-radius: 4px;
+    background-color: rgb(20, 96, 91);
+    color:white;
+
+}
+
+body .info a:hover{
+    opacity:0.8;
+}
 body  .back{
     width:80%;
     margin:auto;
@@ -342,4 +363,8 @@ body section#program_info ul li{
     border-left:6px solid rgb(20, 96, 91);
     margin-bottom: 3px;
     list-style-type: none;
+}
+
+body section#cutoff_filtered{
+    padding:2rem 20px;
 }

@@ -1,16 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const ensureAuthenticated = require('../configs/ensureAuth');
-const {start,
+const {
+    start,
     getLoginPage,
     getWelcomePage,
     getSignupPage,
-    logOut,
-    getProgramDetailPage,
-    getProgramSuccessPage,
+    getGradesPage,
     getInterestPage,
-    getAdvInterestPage,
-    getProgramDetails
+    getProgramsPage,
+    getScoresGraphPage,
+    logOut,
+    getProgramDetails,
+    getCutOffFilterdPage
 } = require('../controllers/pagesController');
 
 
@@ -20,10 +22,11 @@ router.get('/login',getLoginPage);
 router.get('/logout',logOut);
 router.get('/signup',getSignupPage);
 router.get('/welcome',ensureAuthenticated,getWelcomePage);
-router.get('/program_details',ensureAuthenticated,getProgramDetailPage);
-router.get('/program_success',ensureAuthenticated,getProgramSuccessPage);
+router.get('/program_details',ensureAuthenticated,getGradesPage);
+router.get('/program_success',ensureAuthenticated,getScoresGraphPage);
 router.get('/user_interests',ensureAuthenticated,getInterestPage);
-router.get('/user_interest_adv',ensureAuthenticated,getAdvInterestPage);
+router.get('/user_interest_adv',ensureAuthenticated,getProgramsPage);
 router.get('/prog_details',ensureAuthenticated,getProgramDetails);
+router.get('/programs_on_cutoff',ensureAuthenticated,getCutOffFilterdPage);
 
 module.exports = router;

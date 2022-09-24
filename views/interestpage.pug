@@ -14,13 +14,26 @@ block content
     img(src="./images/undraw_interests.png" alt="interest introduction image") 
   .intro_message 
    p Read Through The Following Fields
+   .fields 
+    .flinks 
+     a(href="#hasl") Health And Allied Sciences
+    .flinks 
+     a(href="#engl") Engineering
+    .flinks 
+     a(href="#artsandbuiltl") Arts and Built Environment
+    .flinks 
+     a(href="#scil") Sciences
+    .flinks 
+     a(href="#humanitiesl") Humanities and Social Sciences
+    .flinks 
+     a(href="#natul") Agriculture and Natural Resources
    p#link Click 
     a(href="#interest_form") Here
     span To Select Your Interest ...
   .interest_content 
   
    .content_holder
-    .content  
+    .content(id="hasl")  
      .img
       img(src="./images/health_.jpg", alt="doctors image")
       .slider 
@@ -55,7 +68,7 @@ block content
         strong Bsc. Disability & Rehabilitation Studies.
  
    .content_holder
-    .content  
+    .content(id="engl")  
      .img
       img(src="./images/robotics.jpg", alt="engineering image")
       .slider 
@@ -85,13 +98,13 @@ block content
       .notes 
        p Recommended for Students that offered General Science and Technical in Senior High School 
    .content_holder
-    .content  
+    .content(id="artsandbuiltl")  
      .img
       img(src="./images/architectural.jpg", alt="construction image")
       .slider 
      .text
       h1 Art and Built Environment
-    .description 
+    .description
      p This field offers programs that educate students on creation and design of buildings,analyzing cost involved in construction and innovation in construction. The art section
       span  includes programs that train students on how to express human practices of creative expression, story telling and cultural participation.
      h3 Programs under this field includes
@@ -115,13 +128,13 @@ block content
       .notes 
        P Recommended for Students that offered General Science, Technical , Visual Arts and General Arts in SHS. 
    .content_holder
-    .content  
+    .content(id="scil")  
      .img
       img(src="./images/science1.jpg", alt="science image")
       .slider 
      .text
       h1 Sciences
-    .description 
+    .description
      p Comprises of programs that educates students on  the systematic study
       span  of the structure and behaviour of the physical and natural world through observation and experiment.
       span  Programs here train students on how to understand nature and apply natural phenomena to solve wide array of human problems.
@@ -149,7 +162,7 @@ block content
        p General Arts and Technical Students can choose this course if they had passes in chemistry or physics and are interested
         span  Bsc. Acturial Science  
    .content_holder
-    .content  
+    .content(id="humanitiesl")  
      .img
       img(src="./images/politics2.jpg", alt="politics image")
       .slider 
@@ -188,13 +201,13 @@ block content
       .notes 
        P Recommended For Students Who Offered General Arts, Business, General Science , Visual Arts, Technical , Home Economics , Agriculture .  
    .content_holder
-    .content  
+    .content(id="natul")
      .img
       img(src="./images/agriculture_.jpg", alt="Agriculture image")
       .slider 
      .text
       h1 Agriculture and Natural Resources
-    .description  
+    .description
      p This field consists of programs that educate and train students on how to manage and care of natural resources 
       span including agriculture.
      h3 Programs under this field includes: 
@@ -227,8 +240,8 @@ block content
        label(for="eng") Engineering
        input(type="checkbox", name="engineering" id="eng" class="int")
       .opt
-       label(for="arts&built") Art and Built Environment
-       input(type="checkbox", name="artandbuilt" id="arts&built" class="int")
+       label(for="arts_built") Art and Built Environment
+       input(type="checkbox", name="artandbuilt" id="arts_built" class="int")
       .opt
        label(for="sci") Science
        input(type="checkbox" name="science" id="sci" class="int")
@@ -236,8 +249,8 @@ block content
        label(for="humanities") Humanities and Social Science
        input(type="checkbox", name="humanitiesandsocialscience" id="humanities" class="int")
       .opt
-       label(for="agric&natu") Agriculture and Natural Resources
-       input(type="checkbox" name="agricandnaturalresources" id="agric&natu" class="int")
+       label(for="agric_natu") Agriculture and Natural Resources
+       input(type="checkbox" name="agricandnaturalresources" id="agric_natu" class="int")
      .sub 
       input(type="submit", value="Next") 
   script(type="text/javascript" src="./js/main.js")         

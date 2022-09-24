@@ -9,6 +9,7 @@ class GetPrograms {
         
         this.queries = {
             getOnInterestId:"Select * from knust_programs where college_id =?",
+            
             getOnId: "Select * from knust_programs where id=?"
         }
 
