@@ -3,6 +3,28 @@ block content
  section#cutoff_filtered  
   .back 
    button(onclick="history.back()" ) << go back 
+  .intro_container  
+   .p_details
+    h1 Student's Details
+    .details
+     p 
+      b Name :  
+      span=data.name
+     p 
+      b Shs Program : 
+      span=data.shsprogram 
+     p 
+      b Aggregate calculated : 
+      span=data.aggregate
+     p 
+      b Fields Of Interest 
+      ul
+       each interest in data.interests 
+        li=interest      
+   .intro_img 
+    img(src="./images/undraw_interests.png" alt="Students illust..")
+  hr
+
   h1.phase2 The Programs Below Are Eligible For You Based On The Aggregate You Had In Wassce 
   .sidenotes 
    p Numbers associated with each program is the cutoff point required for that particular program.
