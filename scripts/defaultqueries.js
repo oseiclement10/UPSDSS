@@ -84,3 +84,4 @@
 ('BSc Physician Assistantship, 1, 7'),
 ('BSc Physiotherapy and Sports Science, 1, 14'),
 ('LLB, 6, 6')
+ 
