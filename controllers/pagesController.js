@@ -1,6 +1,7 @@
 const GetInterestId = require('../helpers/GetInterestId');
 const programs_array = require('../helpers/programs');
 const GetPrograms = require('../models/GetPrograms');
+const Recommend = require('../helpers/Recommed');
 
 let interest_fileds={
     healthandalliedsciences:"Health And Allied Sciences",
@@ -11,6 +12,22 @@ let interest_fileds={
     agricandnaturalresources:"Agriculture and Natural Resources"
 };
    
+function bobble(arr){
+
+    let len = arr.length;
+    for(let i=0;i<len;i++){
+            for(let j=i+1; j<len;j++){
+                    if(arr[i].substring(arr[i].length-1) > arr[j].substring(arr[j].length-1)){
+                            let temp = arr[i];
+                            arr[i] = arr[j];
+                            arr[j] = temp                               
+                        }
+                }
+    }
+
+    return arr;
+
+}
 
 function clean(string){
     let words = string.split(",");
@@ -18,12 +35,33 @@ function clean(string){
     return newString;
 }
 
-function getProgramsOnInterests (interest_array,user,pageRenderer){
+
+    function removeDuplicates(arr){
+        return arr.filter((elem,index)=>arr.indexOf(elem)===index);
+    }
+
+function getProgramsOnInterests (interest_array,user,pageRenderer,rawinterests=[]){
+    
+    
     let aggregate = user.aggregate;
     let ProgramsFinder = new GetPrograms();
+    let Recommender = new Recommend();
+
+    Recommender.loadInterests(rawinterests);
+
+    let examsscores = user.examsscores.split(",");
+    let electives = examsscores.splice(4);
+    let keyElectives = bobble(electives);
+    keyElectives = keyElectives.map(elem=>elem.substring(0,elem.length-2)).splice(0,2);
+    keyElectives = keyElectives.map(elem=>elem.toLowerCase());
+    
+   
+    Recommender.loadStrengths(keyElectives);
+
     let len = interest_array.length;
     let data = [];
-   
+    
+    
     for(let i=0; i<len; i++){
         let interest = interest_array[i];
         let InterestId = new GetInterestId(interest).interest_id;
@@ -42,7 +80,7 @@ function getProgramsOnInterests (interest_array,user,pageRenderer){
                     prog.id=elem.id;
                     return prog;
                 });
-                console.log(user.shsprogram);
+               
                 
                 if(InterestId==1 && user.shsprogram !="General Science"){
                    ProgramsFinder.collection.content = ProgramsFinder.collection.content.filter(elem=>elem.program_name=="BSc Disability and Rehabilitation Studies"); 
@@ -57,13 +95,30 @@ function getProgramsOnInterests (interest_array,user,pageRenderer){
                 
                 if(i==(len-1)){
                     let detailedData = deepCopyArrays(data,[]);
+                    
                     detailedData = detailedData.map(ele=>{
                         ele.content = ele.content.filter(el=>(el.cutoff)>=aggregate)
                         return ele;
                     });
 
-                    pageRenderer(null,user,data,detailedData,"programs");
+                    
+                    let recommendData = deepCopyArrays(detailedData,[]);
+
+                     recommendData = recommendData.map(elem=>{
+                        elem.title = elem.title.toLowerCase().split(" ").join("");
+                        return elem;
+                     })
+                    
+                    Recommender.loadAvailablePrograms(recommendData);
+
+                    Recommender.recommend();
+
+                    recommendData = Recommender.recommendedPrograms;
+                    recommendData = removeDuplicates(recommendData);
+                  
+                    pageRenderer(null,user,data,detailedData,recommendData);
                 }
+
             }
         })
 
@@ -73,6 +128,7 @@ function getProgramsOnInterests (interest_array,user,pageRenderer){
 
 
 }
+
 function deepCopyArrays(source,target){
     let len = source.length;
     for(let i =0; i<len ; i++){
@@ -185,7 +241,7 @@ const getProgramsPage = async (req,res,next)=>{
     let user = {};
     user.name = req.user.username;
     user.shsprogram = req.user.shsprogram;
-
+    user.examsscores = req.user.examsscores;
     user.aggregate = (`${req.user.aggregate}`.length==2) ? req.user.aggregate : `0${req.user.aggregate}`;
     user.strengths = req.user.strengths;
 
@@ -197,8 +253,7 @@ const getProgramsPage = async (req,res,next)=>{
 
     user.interests = interests;
 
-    getProgramsOnInterests(user.interests,user,render);
-
+    
     function render(err,user,data,detailedData){
         if(err){
             console.log(err);
@@ -210,7 +265,11 @@ const getProgramsPage = async (req,res,next)=>{
         });
     }
     }
+
+    getProgramsOnInterests(user.interests,user,render);
+
 }
+
 
 const getCutOffFilterdPage=(req,res,next)=>{
     let interests = [];
@@ -220,7 +279,7 @@ const getCutOffFilterdPage=(req,res,next)=>{
 
     user.aggregate = (`${req.user.aggregate}`.length==2) ? req.user.aggregate : `0${req.user.aggregate}`;
     user.strengths = req.user.strengths;
-
+    user.examsscores = req.user.examsscores;
     let keys = req.user.interests.split(",");
     
     keys.forEach(element => {
@@ -228,6 +287,7 @@ const getCutOffFilterdPage=(req,res,next)=>{
     });
 
     user.interests = interests;
+    
 
     getProgramsOnInterests(user.interests,user,render);
 
@@ -263,7 +323,41 @@ const getProgramDetails = (req,res,next)=>{
     }
 }
 
+const getProgramsOnStrengths = (req,res,next)=>{
+    let interests = [];
+    let user = {};
+    user.name = req.user.username;
+    user.shsprogram = req.user.shsprogram;
+    user.examsscores = req.user.examsscores;
+    user.aggregate = (`${req.user.aggregate}`.length==2) ? req.user.aggregate : `0${req.user.aggregate}`;
+    user.strengths = req.user.strengths;
 
+    let keys = req.user.interests.split(",");
+    let interestsRaw = Object.assign([],keys);
+
+    keys.forEach(element => {
+        interests.push(interest_fileds[element])
+    });
+
+    user.interests = interests;
+    
+    function render(err,user,data,filteredData,recommendData){
+        if(err){
+            console.log(err);
+        }else{
+            
+        res.render("strengths",{
+            data:user,
+            detail_programs:filteredData,
+            programs:recommendData
+        });
+    }
+    }
+
+    getProgramsOnInterests(user.interests,user,render,interestsRaw);
+
+    
+}
 
 module.exports = {
     start,
@@ -276,5 +370,6 @@ module.exports = {
     getScoresGraphPage,
     logOut,
     getProgramDetails,
-    getCutOffFilterdPage
+    getCutOffFilterdPage,
+    getProgramsOnStrengths
 }

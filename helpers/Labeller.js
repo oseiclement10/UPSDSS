@@ -1,25 +1,5 @@
-
-class recommender{
-    
-    shsprogram="";
-    interest="";
-    strength_electives="";
-    availablePrograms=[];
-
-    constructor(shsprogram,interest,strength_electives){
-        this.shsprogram=shsprogram;
-        this.interest=interest;
-        this.electives=strength_electives;
-    }
-
-    recommend(){
-
-    }
-    
-
-}
-
 class Labeller{
+     
     science= {
         biology:[
             'Doctor of Optometry',
@@ -29,7 +9,7 @@ class Labeller{
             'BSc Biochemistry',
             'BSc Biological Science',
         ],
-        emaths:[
+        'elective mathematics':[
             'BSc Actuarial Science',
             'BSc Physics',
             'BSc Statistics',
@@ -54,13 +34,33 @@ class Labeller{
             'BSc Meteorology and Climate Science',
             'BSc Physics',
         ],
-        it:[
+        'information technology':[
             'BSc Computer Science',
             'BSc Mathematics',
             'BSc Actuarial Science'
-        ]
+        ],
+        'management in living':[
+            'BSc Biological Science',
+            'BSc Food Science and Technology'
+        ],
+        'food and nuitrition':[
+            'BSc Biological Science',
+            'BSc Food Science and Technology'
+        ],
+        governement:['BSc Mathematics',
+        'BSc Statistics',
+        'BSc Actuarial Science',
+        ],
+        geography:['BSc Mathematics',
+        'BSc Statistics',
+        'BSc Actuarial Science',
+        ],
+        'gka(general knowledge in arts)':['BSc Mathematics',
+        'BSc Statistics',
+        'BSc Actuarial Science',
+        ],
     };
-    hesa={
+    healthandalliedsciences={
         biology:[
             'BSc BDS (Dental Surgery) (Fee-Paying Only)',
             'BSc Disability and Rehabilitation Studies',
@@ -92,12 +92,18 @@ class Labeller{
             'BSc Physician Assistantship',
             'BSc Physiotherapy and Sports Science' 
         ],
-        emaths:[
+        'elective mathematics':[
             'BSc Medical Imaging',
             'BSc Medical Laboratory Technology',
             'BSc Physiotherapy and Sports Science'
  
+        ],
+        'information technology':[
+            'BSc Medical Imaging',
+            'BSc Medical Laboratory Technology',
+            'BSc Physiotherapy and Sports Science'
         ]
+
     };
     engineering={
     physics:[
@@ -132,7 +138,7 @@ class Labeller{
         'BSc Metallurgical Engineering',
         'BSc Marine Engineering',
     ],
-    emaths:[
+    'elective mathematics':[
         'BSc Civil Engineering',
         'BSc Aerospace Engineering',
         'BSc Computer Engineering',
@@ -158,7 +164,7 @@ class Labeller{
               'BSc Materials Engineering',
               'BSc Marine Engineering',
         ],
-    it:[
+    'information technology':[
         'BSc Computer Engineering',
         'BSc Aerospace Engineering',
         'BSc Telecommunication Engineering',
@@ -167,7 +173,7 @@ class Labeller{
         'BSc Electrical/Electronic Engineering',
     ]
     };
-    natu={
+    agricultureandnaturalresources={
         biology:['BSc Agribusiness Management',
         'BSc Agricultural Biotechnology',
         'BSc Agriculture',
@@ -195,7 +201,7 @@ class Labeller{
         'BSc Natural Resources Management',
         'Bsc. Packaging Technology'
         ],
-        emaths:[
+        'elective mathematics':[
             'BSc Agribusiness Management',
             'BSc Agricultural Biotechnology',
             'BSc Agriculture',
@@ -205,7 +211,58 @@ class Labeller{
             'BSc Natural Resources Management',
             'Bsc. Packaging Technology'        
         ],
-        animalscience:['BSc Agribusiness Management',
+        accounting:[
+            'BSc Agribusiness Management',
+            'BSc Agricultural Biotechnology',
+            'BSc Agriculture',
+            'BSc Aquaculture and Water Resources Management',
+            'BSc Forest Resources Technology',
+            'BSc Landscape Design and Management',
+            'BSc Natural Resources Management',
+            'Bsc. Packaging Technology'  
+        ],
+        economics:[
+            'BSc Agribusiness Management',
+            'BSc Agricultural Biotechnology',
+            'BSc Agriculture',
+            'BSc Aquaculture and Water Resources Management',
+            'BSc Forest Resources Technology',
+            'BSc Landscape Design and Management',
+            'BSc Natural Resources Management',
+            'Bsc. Packaging Technology'
+        ],
+        costing:[
+            'BSc Agribusiness Management',
+            'BSc Agricultural Biotechnology',
+            'BSc Agriculture',
+            'BSc Aquaculture and Water Resources Management',
+            'BSc Forest Resources Technology',
+            'BSc Landscape Design and Management',
+            'BSc Natural Resources Management',
+            'Bsc. Packaging Technology'
+        ],
+        'business management':[
+            'BSc Agribusiness Management',
+            'BSc Agricultural Biotechnology',
+            'BSc Agriculture',
+            'BSc Aquaculture and Water Resources Management',
+            'BSc Forest Resources Technology',
+            'BSc Landscape Design and Management',
+            'BSc Natural Resources Management',
+            'Bsc. Packaging Technology'
+        ],
+        'information technology':[
+            'Bsc. Packaging Technology',
+            'BSc Agribusiness Management',
+            'BSc Agricultural Biotechnology',
+            'BSc Agriculture',
+            'BSc Aquaculture and Water Resources Management',
+            'BSc Forest Resources Technology',
+            'BSc Landscape Design and Management',
+            'BSc Natural Resources Management',
+            
+        ],
+        'animal science':['BSc Agribusiness Management',
         'BSc Agricultural Biotechnology',
         'BSc Agriculture',
         'BSc Aquaculture and Water Resources Management',
@@ -215,7 +272,7 @@ class Labeller{
         'Bsc. Packaging Technology'
     ],
 
-        cropscience:['BSc Agribusiness Management',
+    'crop science':['BSc Agribusiness Management',
         'BSc Agricultural Biotechnology',
         'BSc Agriculture',
         'BSc Aquaculture and Water Resources Management',
@@ -225,7 +282,7 @@ class Labeller{
         'Bsc. Packaging Technology'
     ],
         
-        generalagric:['BSc Agribusiness Management',
+         'general agriculture':['BSc Agribusiness Management',
         'BSc Agricultural Biotechnology',
         'BSc Agriculture',
         'BSc Aquaculture and Water Resources Management',
@@ -262,7 +319,7 @@ class Labeller{
         'Bsc. Packaging Technology'
         
         ],
-        gka:[
+        'gka(general knowledge in arts)':[
             'BSc Agribusiness Management',
             'BSc Agriculture',
             'BSc Natural Resources Management',
@@ -284,7 +341,7 @@ class Labeller{
         'BSc Landscape Design and Management',
         'Bsc. Packaging Technology' 
     ],
-        lit:[ 'BSc Agribusiness Management',
+    'literature':[ 'BSc Agribusiness Management',
         'BSc Agriculture',
         'BSc Natural Resources Management',
         'BSc Aquaculture and Water Resources Management',
@@ -300,13 +357,14 @@ class Labeller{
         'BSc Forest Resources Technology',
         'Bsc. Packaging Technology' 
     ],
-    picturemaking:['Bsc. Packaging Technology'],
+    'picture making':['Bsc. Packaging Technology'],
+
     textiles:['Bsc. Packaging Technology'],
     graphics:['Bsc. Packaging Technology'],
     sculpture:['Bsc. Packaging Technology'],
     leather:['Bsc. Packaging Technology']
     }
-    artsandbuilt={
+    artandbuiltenvironment ={
         physics:['BSc Architecture',
         'BSc Construction Technology and Management',
         'BSc Quantity Surveying and Construction Economics',
@@ -318,7 +376,7 @@ class Labeller{
         'BEd. Junior High School Specialism',
         'BA Publishing Studies',    
     ],
-        emaths:[
+    'elective mathematics':[
         'BSc Architecture',
         'BSc Construction Technology and Management',
         'BSc Quantity Surveying and Construction Economics',
@@ -358,7 +416,7 @@ class Labeller{
             'BEd. Junior High School Specialism',
 
         ],
-        it:[
+        'information technology':[
             'BA Publishing Studies',
             'BA Communication Design (Graphic Design)',
             'BSc Real Estate',
@@ -389,7 +447,7 @@ class Labeller{
             'BSc Textile Design and Technology',
 
         ],
-        econs:['BSc Construction Technology and Management',
+        economics:['BSc Construction Technology and Management',
         'BSc Human Settlement Planning',
         'BSc Land Economy',
         'BSc Quantity Surveying and Construction Economics',
@@ -424,7 +482,7 @@ class Labeller{
         'BSc Textile Design and Technology',
         ],
 
-        gka:[
+        'gka(general knowledge in arts)':[
             'BA Communication Design (Graphic Design)',
         'BA Communication Studies',
         'BA Integrated Rural Art and Industry',
@@ -437,8 +495,7 @@ class Labeller{
         ],
         twi:['BA Communication Design (Graphic Design)',
         'BA Communication Studies',
-        'BA Integrated Rural Art and Industry',
-       
+        'BA Integrated Rural Art and Industry', 
         'BA Publishing Studies',
         'BEd. Junior High School Specialism',
         'BSc Fashion Design',
@@ -456,7 +513,7 @@ class Labeller{
         
 
         ],
-        lit:[
+        'literature':[
             'BA Communication Design (Graphic Design)',
         'BA Communication Studies',
         'BA Integrated Rural Art and Industry',
@@ -465,7 +522,7 @@ class Labeller{
         'BSc Fashion Design',
        
         ],
-        picturemaking:['BA Integrated Rural Art and Industry',
+        'picture making':['BA Integrated Rural Art and Industry',
         'BFA Painting and Sculpture',
         'BA Publishing Studies',
         'BSc Fashion Design',
@@ -515,7 +572,7 @@ class Labeller{
         'BEd. Junior High School Specialism',
         ],
 
-        buildingconstruction:[
+        'building construction':[
             'BSc Architecture',
             'BSc Construction Technology and Management',
             'BSc Land Economy',
@@ -541,7 +598,7 @@ class Labeller{
             'BA Publishing Studies',
 
         ],
-        technicaldrawing:[
+        'technical drawing':[
             'BSc Architecture',
             'BSc Construction Technology and Management',
             'BSc Land Economy',
@@ -557,7 +614,330 @@ class Labeller{
 
         ]
     }
-    humanities={
+    humanitiesandsocialsciences={
+      biology:[
+        'BSc Hospitality and Tourism Management',
+        'LLB',
+        'BA Religious Studies',
+        'BA Sociology',
+        'BA Social Work',
+        'BSc Development Planning',
+        'BA Akan Language and Culture',
+        'BA Culture and Tourism',
+        'BA Economics',
+        'BA English',
+        'BSc Business Administration (Logistics and Supply Chain Mgt/Bus. Info. Tech.)',
+        'BSc Business Administration ((Human Resource Management/Management)',
+      ],
+     physics:['BA Geography and Rural Development',
+         'BA History',
+         'BA Political Studies',
+         'BA Religious Studies',
+         'BA Sociology',
+         'BA Social Work',
+         'BSc Development Planning',
+        'BSc Business Administration ((Human Resource Management/Management)',
+        'BSc Business Administration (Marketing/International Business)',
+        'BSc Business Administration (Accounting/Banking and Finance)',
+        'BSc Business Administration (Logistics and Supply Chain Mgt/Bus. Info. Tech.)',
+        'BSc Hospitality and Tourism Management',
+        'LLB',
+     ],
+     'elective mathematics':[
+        'BA Economics',
+        'BSc Business Administration ((Human Resource Management/Management)',
+        'BSc Business Administration (Marketing/International Business)',
+        'BSc Business Administration (Accounting/Banking and Finance)',
+        'BSc Business Administration (Logistics and Supply Chain Mgt/Bus. Info. Tech.)',
+        'BSc Hospitality and Tourism Management',
+        'LLB',
+        'BA Sociology',
+        'BA Social Work',
+        'BSc Development Planning',
+        'BA Economics',
+        'BA Geography and Rural Development',
+     ],
+     chemistry:[
+      'BA Geography and Rural Development',
+      'LLB',
+     'BA History',
+     'BA Political Studies',
+     'BA Religious Studies',
+     'BA Sociology',
+     'BA Social Work',
+     'BSc Development Planning',
+    'BSc Business Administration ((Human Resource Management/Management)',
+    'BSc Business Administration (Marketing/International Business)',
+    'BSc Business Administration (Accounting/Banking and Finance)',
+    'BSc Business Administration (Logistics and Supply Chain Mgt/Bus. Info. Tech.)',
+    'BSc Hospitality and Tourism Management',
+     ],
+     'information technology':[
+        'BA Economics',
+        'BSc Development Planning',
+        'BA Linguistics',
+        'BSc Business Administration ((Human Resource Management/Management)',
+        'BSc Business Administration (Marketing/International Business)',
+        'BSc Business Administration (Accounting/Banking and Finance)',
+        'BSc Business Administration (Logistics and Supply Chain Mgt/Bus. Info. Tech.)',
+        'BSc Hospitality and Tourism Management',
+     ],
+     accounting:[ 'BSc Business Administration (Accounting/Banking and Finance)',
+        'BSc Business Administration ((Human Resource Management/Management)',
+        'BSc Business Administration (Marketing/International Business)',
+        'BSc Business Administration (Logistics and Supply Chain Mgt/Bus. Info. Tech.)',
+        'BSc Hospitality and Tourism Management',
+        'LLB',
+        'BSc Development Planning',
+        'BA Geography and Rural Development',
+        'BA History',
+        'BA Political Studies',
+        'BA Religious Studies',
+        'BA Sociology',
+        'BA Social Work',
+       
         
+        
+     ],
+     economics:[
+        'BSc Business Administration ((Human Resource Management/Management)',
+     'BSc Business Administration (Marketing/International Business)',
+     'BSc Business Administration (Logistics and Supply Chain Mgt/Bus. Info. Tech.)',
+     'BSc Hospitality and Tourism Management',
+      'BSc Business Administration (Accounting/Banking and Finance)',
+     'LLB',
+     'BSc Development Planning',
+     'BA Geography and Rural Development',
+     'BA History',
+     'BA Political Studies',
+     'BA Religious Studies',
+     'BA Sociology',
+     'BA Social Work',
+     ],
+     'business management':[  'BSc Business Administration ((Human Resource Management/Management)',
+     'BSc Business Administration (Marketing/International Business)',
+     'BSc Business Administration (Logistics and Supply Chain Mgt/Bus. Info. Tech.)',
+     'BSc Hospitality and Tourism Management',
+      'BSc Business Administration (Accounting/Banking and Finance)',
+     'LLB',
+     'BSc Development Planning',
+     'BA Geography and Rural Development',
+     'BA History',
+     'BA Political Studies',
+     'BA Religious Studies',
+     'BA Sociology',
+     'BA Social Work',
+     ],
+     costing:[  'BSc Business Administration ((Human Resource Management/Management)',
+     'BSc Business Administration (Marketing/International Business)',
+     'BSc Business Administration (Logistics and Supply Chain Mgt/Bus. Info. Tech.)',
+     'BSc Hospitality and Tourism Management',
+      'BSc Business Administration (Accounting/Banking and Finance)',
+     'LLB',
+     'BSc Development Planning',
+     'BA Geography and Rural Development',
+     'BA History',
+     'BA Political Studies',
+     'BA Religious Studies',
+     
+     'BA Sociology',
+     'BA Social Work',
+
+     ],
+     governement:[
+        'LLB',
+        'BA Geography and Rural Development',
+        'BA History',
+        'BA Political Studies',
+        'BSc Business Administration ((Human Resource Management/Management)',
+        'BSc Business Administration (Marketing/International Business)',
+        'BSc Business Administration (Accounting/Banking and Finance)',
+        'BSc Business Administration (Logistics and Supply Chain Mgt/Bus. Info. Tech.)',
+        'BA Religious Studies',
+        'BA Sociology',
+        'BA Social Work',
+        'BSc Development Planning',
+        'BA Akan Language and Culture',
+        'BSc Hospitality and Tourism Management',
+        'BA Culture and Tourism',
+        'BA Economics',
+        'BA English',
+        'BA French and Francophone Studies',  
+     ],
+     geography:[
+        'LLB',
+        'BA Geography and Rural Development',
+        'BSc Business Administration ((Human Resource Management/Management)',
+        'BSc Business Administration (Marketing/International Business)',
+        'BSc Business Administration (Accounting/Banking and Finance)',
+        'BSc Business Administration (Logistics and Supply Chain Mgt/Bus. Info. Tech.)',
+        'BA History',
+        'BA Political Studies',
+        'BA Religious Studies',
+        'BA Sociology',
+        'BSc Hospitality and Tourism Management',
+        'BA Social Work',
+        'BSc Development Planning',
+        'BA Akan Language and Culture',
+        'BA Culture and Tourism',
+        'BA Economics',
+        'BA English',
+        'BA French and Francophone Studies',
+     ],
+     'gka(general knowledge in arts)':[
+        'BA Linguistics',
+        'BSc Hospitality and Tourism Management',
+        'BA Akan Language and Culture',
+        'BA Culture and Tourism',
+        'BA Economics',
+        'BA English',
+        'BA French and Francophone Studies',
+        'BA Geography and Rural Development',
+        'BA History',
+        'BA Political Studies',
+        'BA Religious Studies',
+        'BA Sociology',
+        'BA Social Work',
+        'BSc Development Planning',
+     ],
+     twi:['BA Akan Language and Culture',
+     'BA Culture and Tourism',
+     'BA English',
+     'BA French and Francophone Studies',
+     'BA History',
+     'BA Sociology',
+     'BA Social Work',
+     'BA Linguistics',
+     ],
+     french:[
+        'BA Akan Language and Culture',
+     'BA Culture and Tourism',
+     'BA English',
+     'BA French and Francophone Studies',
+     'BA History',
+     'BA Sociology',
+     'BA Social Work',
+     'BA Linguistics',
+     ],
+     'literature':[
+    'LLB',
+    'BA Akan Language and Culture',
+     'BA Culture and Tourism',
+     'BA English',
+     'BA French and Francophone Studies',
+     'BA History',
+     'BA Sociology',
+     'BA Social Work',
+     'BA Linguistics',
+     ],
+     'management in living':[
+        'BA Sociology',
+        'BA Social Work',
+        'BSc Development Planning',
+        'BA Linguistics',
+        'BA Akan Language and Culture',
+        'BA Culture and Tourism',
+        'BA History',
+        'BA Political Studies',
+        'BA Religious Studies',
+     ],
+     'food and nuitrition':[
+        'BA Sociology',
+        'BA Social Work',
+        'BSc Development Planning',
+        'BA Linguistics',
+        'BA Akan Language and Culture',
+        'BA Culture and Tourism',
+        'BA History',
+        'BA Political Studies',
+        'BA Religious Studies',
+     ],
+     'clothing and textiles':[
+        'BA Social Work',
+        'BSc Development Planning',
+        'BA Linguistics',
+        'BA Akan Language and Culture',
+        'BA Culture and Tourism',
+        'BA History',
+        'BA Religious Studies',
+     ],
+     'picture making':[
+        'BA Social Work',
+        'BSc Development Planning',
+        'BA Linguistics',
+        'BA Akan Language and Culture',
+        'BA Culture and Tourism',
+        'BA History',
+        'BA Religious Studies',
+     ],
+     graphics:[
+        'BA Social Work',
+        'BSc Development Planning',
+        'BA Linguistics',
+        'BA Akan Language and Culture',
+        'BA Culture and Tourism',
+        'BA History',
+        'BA Religious Studies',
+     ],
+     sculpture:[
+        'BA Social Work',
+        'BSc Development Planning',
+        'BA Linguistics',
+        'BA Akan Language and Culture',
+        'BA Culture and Tourism',
+        'BA History',
+        'BA Religious Studies',
+     ],
+     leather:[
+        'BA Social Work',
+        'BSc Development Planning',
+        'BA Linguistics',
+        'BA Akan Language and Culture',
+        'BA Culture and Tourism',
+        'BA History',
+        'BA Religious Studies',
+     ],
+     wood:[
+        'BSc Development Planning',
+        'BA Social Work',
+        'BA Linguistics',
+        'BA Akan Language and Culture',
+        'BA Culture and Tourism',
+        'BA History',
+        'BA Religious Studies',
+     ],
+     'building construction':[
+        'BSc Development Planning',
+        'BA Geography and Rural Development',
+        'BSc Hospitality and Tourism Management',
+        'BA Culture and Tourism',
+        'BA Economics',
+        'BA History',
+        'BA Political Studies',
+        'BA Religious Studies',
+        'BA Sociology',
+        'BA Social Work',
+        'BA Linguistics',
+     ],
+     'general agriculture':['BA History',
+     'BA Social Work',
+     'BA Linguistics',
+     'BA Akan Language and Culture',
+     'BA Culture and Tourism',
+
+     ],
+     'crop science':['BA History',
+     'BA Social Work',
+     'BA Linguistics',
+     'BA Akan Language and Culture',
+     'BA Culture and Tourism',],
+     'animal science':['BA History',
+     'BA Social Work',
+     'BA Linguistics',
+     'BA Akan Language and Culture',
+     'BA Culture and Tourism',]
     }
+    
 }
+
+ module.exports = Labeller;

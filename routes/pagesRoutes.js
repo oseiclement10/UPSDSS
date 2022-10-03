@@ -12,7 +12,8 @@ const {
     getScoresGraphPage,
     logOut,
     getProgramDetails,
-    getCutOffFilterdPage
+    getCutOffFilterdPage,
+    getProgramsOnStrengths
 } = require('../controllers/pagesController');
 
 
@@ -28,5 +29,6 @@ router.get('/user_interests',ensureAuthenticated,getInterestPage);
 router.get('/user_interest_adv',ensureAuthenticated,getProgramsPage);
 router.get('/prog_details',ensureAuthenticated,getProgramDetails);
 router.get('/programs_on_cutoff',ensureAuthenticated,getCutOffFilterdPage);
+router.get('/view_programs',ensureAuthenticated,getProgramsOnStrengths);
 
 module.exports = router;
