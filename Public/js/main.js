@@ -33,14 +33,17 @@ function checkSelected(boxes){
 
 function validateElectiveInput(){
     let valid = ["A1","B2","B3","C4","C5","C6","D7","E8","F9"];
+    let failed = ["D7","E8","F9"];
     let inputs = document.getElementsByClassName('escores');
     for(let i =0; i < inputs.length; i++){
         if(!(valid.includes((inputs[i].value).toUpperCase()))){
             alert("invalid grade entered");
             inputs[i].focus();
-           
             return false;
-            break;
+        }else if((failed.includes((inputs[i].value).toUpperCase()))){
+            alert("Minimun grade of C6 is required. D7,E8 and F9 are not allowed");   
+            inputs[i].focus();
+            return false;
         }
     }
     return true;
