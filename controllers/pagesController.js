@@ -341,6 +341,8 @@ const getProgramsOnStrengths = (req,res,next)=>{
 
     user.interests = interests;
     
+    let keyElectives = bobble(user.examsscores.split(",").splice(4)).splice(0,2);
+    keyElectives = keyElectives.map(elem=>elem.substring(0,elem.length-2));
     function render(err,user,data,filteredData,recommendData){
         if(err){
             console.log(err);
@@ -349,7 +351,8 @@ const getProgramsOnStrengths = (req,res,next)=>{
         res.render("strengths",{
             data:user,
             detail_programs:filteredData,
-            programs:recommendData
+            programs:recommendData,
+            strengths:keyElectives
         });
     }
     }
@@ -357,6 +360,9 @@ const getProgramsOnStrengths = (req,res,next)=>{
     getProgramsOnInterests(user.interests,user,render,interestsRaw);
 
     
+}
+const getApplyPage = (req,res,next)=>{
+    res.render("upsdss_apply");
 }
 
 module.exports = {
@@ -371,5 +377,6 @@ module.exports = {
     logOut,
     getProgramDetails,
     getCutOffFilterdPage,
-    getProgramsOnStrengths
+    getProgramsOnStrengths,
+    getApplyPage,
 }

@@ -13,7 +13,8 @@ const {
     logOut,
     getProgramDetails,
     getCutOffFilterdPage,
-    getProgramsOnStrengths
+    getProgramsOnStrengths,
+    getApplyPage
 } = require('../controllers/pagesController');
 
 
@@ -30,5 +31,6 @@ router.get('/user_interest_adv',ensureAuthenticated,getProgramsPage);
 router.get('/prog_details',ensureAuthenticated,getProgramDetails);
 router.get('/programs_on_cutoff',ensureAuthenticated,getCutOffFilterdPage);
 router.get('/view_programs',ensureAuthenticated,getProgramsOnStrengths);
+router.get('/upsdss_apply',getApplyPage);
 
 module.exports = router;

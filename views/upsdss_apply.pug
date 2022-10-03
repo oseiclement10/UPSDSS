@@ -1,0 +1,49 @@
+extends layout.pug 
+block content 
+ section#apply
+  .back 
+   button(onclick="history.back()" ) << go back 
+  .intro 
+   h2 UNIVERSITY APPLICATION
+  .notes 
+   p Click on a University to visit their website to check whether the university admission forms are out.
+   p Forms can be purchased at Banks indicated by the University. Check University Website for more information.
+  .links_container 
+   .link
+    a(href="https://apps.knust.edu.gh/admissions/")
+     .link_image 
+      img(src="./images/knust.png")
+     .txt 
+      p Visit Knust   
+   .link 
+    a(href="https://admission.ug.edu.gh/applying/")
+     .link_image 
+      img(src="./images/legon.jpg")
+     .txt 
+      p Visit University OF Ghana 
+   .link 
+    a(href="https://apply.ucc.edu.gh/")
+     .link_image 
+      img(src="./images/ucc.jpg")
+     .txt 
+      p Visit University OF Cape Cost 
+   .link 
+    a(href="https://www.uew.edu.gh/admissions")
+     .link_image 
+      img(src="./images/uew.png")
+     .txt 
+      p Visit University Of Education Winneba 
+   .link  
+    a(href="https://admissions.uenr.edu.gh")
+     .link_image 
+      img(src="./images/uenr.png")
+     .txt 
+      p Visit University Of Energy and Natural Resources
+   .link 
+    a(href="https://www.uds.edu.gh/admissions/  ")
+     .link_image 
+      img(src="./images/uds_emblem.png" alt="uni pic")
+     .txt 
+      p Visit University OF Development Studies  
+ hr
+      

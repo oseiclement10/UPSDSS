@@ -1,4 +1,41 @@
 extends layout.pug 
-block content 
- each data in programs 
-  li=data
+block content
+ section#recomendation
+  .back 
+   button(onclick="history.back()" ) << go back
+  .details_container
+   .user_details 
+     h1 Student's Details
+     .details_image
+      .details
+       p 
+        b Name :  
+        span=data.name
+       p 
+        b Shs Program : 
+        span=data.shsprogram 
+       p 
+        b Aggregate calculated : 
+        span=data.aggregate
+       p 
+        b Fields Of Interest 
+        ul
+         each interest in data.interests 
+          li=interest      
+      .intro_img 
+       img(src="./images/undraw_interests.png" alt="Students illust..")
+     .strengths 
+      H2 Key Electives Considered 
+      ul
+       each elective in strengths 
+        li=elective
+  .intro 
+   h2 The Programs Below Are Recommended For You.
+   p After analysing your interest and strengths and weakness
+  .programs_on_strengths  
+   each data in programs 
+    div 
+     p=data
+  .apply 
+   p You Can Apply To A Tertiary  Here. &nbsp; 
+    a(href="/upsdss_apply") Apply   

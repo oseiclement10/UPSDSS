@@ -368,3 +368,108 @@ body section#program_info ul li{
 body section#cutoff_filtered{
     padding:2rem 20px;
 }
+
+body section#recomendation{
+    padding:2rem;
+}
+body section#recomendation .details_image{
+    display: flex;
+    padding:10px;
+    width:90%;
+    height: 40vh;
+    margin:auto;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 1rem;
+    border:1px solid gray;
+}
+
+body section#recomendation .intro_img{
+    flex:2;
+    height:inherit;
+}
+
+body section#recomendation .intro_img img{
+    width:100%;
+    max-width: 100%;
+    height: inherit;
+    object-fit: contain;
+    padding:5px;
+}
+
+body section#recomendation .strengths{
+    padding-left:3rem;
+    padding-top:3rem;
+}
+
+body section#recomendation .strengths ul{
+    list-style-type: none;
+}
+body section#recomendation .strengths li{
+    font-size: 1.2rem;
+    padding:3px;
+    margin-bottom:5px;
+    border-left:3px solid rgb(20, 96, 91);
+}
+
+body section#recomendation .intro{
+    padding-top:3rem;
+    text-align: center;
+}
+
+body section#recomendation .programs_on_strengths{
+    padding:2rem;
+    padding-left: 12rem;
+    display: grid;
+    width:80%;
+    border:1px solid gray;
+    margin:auto;
+    grid-template-columns: repeat(2,1fr);
+}
+
+body section#recomendation .apply{
+   width:70%;
+   margin: auto;
+   margin-top: 2rem;
+   border:1px solid transparent;
+   font-weight: bold;
+    text-align: end;
+}
+
+body section#apply{
+    padding:2rem;
+}
+body section#apply .intro{
+    text-align: center;
+    font-size: 1.6rem;
+    color:rgb(7, 55, 37);
+}
+body section#apply .notes{
+    text-align: center;
+    word-spacing: 1px;
+}
+body section#apply .links_container{
+    padding-top: 3rem;
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+    margin-top: 3rem;
+    width: 80%;
+    margin:auto;
+}
+body section#apply .links_container .link{
+   
+    width:50%;
+    justify-self: center;
+   
+}
+
+body section#apply .links_container .link img{
+    max-width: 100%;
+    width:100%;
+}
+
+
+body section#apply .links_container .link .txt{
+    text-align: center;
+}
