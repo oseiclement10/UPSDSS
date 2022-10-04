@@ -52,6 +52,9 @@ function getProgramsOnInterests (interest_array,user,pageRenderer,rawinterests=[
     let examsscores = user.examsscores.split(",");
     let electives = examsscores.splice(4);
     let keyElectives = bobble(electives);
+    
+    let rawElectives = keyElectives.map(elem=>elem.substring(0,elem.length-2));
+
     keyElectives = keyElectives.map(elem=>elem.substring(0,elem.length-2)).splice(0,2);
     keyElectives = keyElectives.map(elem=>elem.toLowerCase());
     
@@ -89,6 +92,15 @@ function getProgramsOnInterests (interest_array,user,pageRenderer,rawinterests=[
                  if(InterestId==2 && user.shsprogram =="Business"){
                     ProgramsFinder.collection.content = ProgramsFinder.collection.content.filter(elem=>elem.program_name=="BSc Actuarial Science" || elem.program_name=="BSc Statistics"); 
                  }
+
+                 if(InterestId==1 && user.shsprogram ==="General Science"){
+
+                    let check = rawElectives.filter(elem=>elem=="Biology");
+                    if(!check.length){
+                        ProgramsFinder.collection.content = ProgramsFinder.collection.content.filter(elem=>elem.program_name=="BSc Disability and Rehabilitation Studies"); 
+                    }
+                    
+                }
 
                 let capture = Object.assign({},ProgramsFinder.collection);
                 data.push(capture);
